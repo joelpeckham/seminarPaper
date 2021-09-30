@@ -1,20 +1,20 @@
-PWD /Users/joel/Desktop/Seminar Paper/src
+PWD /Users/joel/Documents/School/Seminar Paper
 INPUT /usr/local/texlive/2021/texmf.cnf
 INPUT /usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.tex
-OUTPUT /Users/joel/Desktop/Seminar Paper/src/paper.log
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
-INPUT /Users/joel/Desktop/Seminar Paper/src/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.tex
+OUTPUT /Users/joel/Documents/School/Seminar Paper/paper.log
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
+INPUT /Users/joel/Documents/School/Seminar Paper/IEEEtran.cls
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
@@ -748,10 +748,10 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.de
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.aux
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.aux
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.aux
-OUTPUT /Users/joel/Desktop/Seminar Paper/src/paper.aux
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.aux
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.aux
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.aux
+OUTPUT /Users/joel/Documents/School/Seminar Paper/paper.aux
 INPUT /usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -808,18 +808,18 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestri
 INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-OUTPUT /Users/joel/Desktop/Seminar Paper/src/paper.pdf
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-OUTPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+OUTPUT /Users/joel/Documents/School/Seminar Paper/paper.pdf
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+OUTPUT /Users/joel/Documents/School/Seminar Paper/paper.out
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd
@@ -848,18 +848,18 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.bbl
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.bbl
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.bbl
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.bbl
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.bbl
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.bbl
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.bbl
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.bbl
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.aux
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
-INPUT /Users/joel/Desktop/Seminar Paper/src/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.aux
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
+INPUT /Users/joel/Documents/School/Seminar Paper/paper.out
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
