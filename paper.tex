@@ -1,0 +1,106 @@
+\documentclass[conference]{IEEEtran}
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{makecell}
+\usepackage{hyperref}
+\begin{document}
+
+\title{Algorithmically Trading like a Human with GPT-J}
+
+\author{\IEEEauthorblockN{Joel Peckham}
+\IEEEauthorblockA{School of Computing\\
+Southern Adventist University\\
+Collegedale, TN 37363\\
+Email: joelskyler@gmail.com}}
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+The abstract goes here.
+\end{abstract}
+
+\section{Introduction}
+Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The next generation of trading algorithms use neural networks to improve prediction accuracy. However, current opinion states neural networks can only increase efficiency by about 10\% and that neural networks are not capable of inventing winning trading ideas \cite{Vonko2021}. We theorize that neural networks are capable of much more. By scaling the number of network parameters into the billions, training the network on a massive dataset which captures the complexities of human behavior, and then making inferences from current  and by feeding the network with current news and opinons we believe that neural networks can model the world accurately enough to discover winning, novel trade ideas. Thankfully, the creators of GPT-J have already created such a neural network \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modelling data set called The Pile \cite{Gao2021}. We propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
+
+In this paper we will first implement a trading algorithm based on GPT-J, then we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Finally, we will evaluate the real-world profitability of the algorithm using both backtesting and live market data. 
+
+In summary, as algorihmic traders seek to employ increasingly competitive and complex trading algorithms, we intend to evaluate the viability of using GPT languange models to drive trading decisions. To achieve this goal we must first implement a trading algorithm based on GPT-J, then evaluate the accuracy of the algorithm's predictions, and finally evaluate the real-world profitability of the algorithm.
+
+The contents of this paper are as follows: First we will explore competing algorithms and methods and how they compare with ours in section 2. Then we will describe our algorithm in section 3. Finally, we will evaluate our algorithm's accuracy and profitability using both backtesting and live market data in section 4. 
+
+\section{Background \& Related Works}
+\section{Execution Plan}
+\subsection{Requirements \& Goals}
+\subsubsection{Functional requirements (user stories)}
+\begin{itemize}
+\item As a finance researcher, I want to quantify the ability of news releases, SEC filings, and social media posts to move stock prices.
+\item As an AI researcher, I want to evaluate the viability of using GPT-J as a stock movement indicator so that I can understand the power of GPT-J to understand complex real-world interactions.
+\item As an algorithmic trader, I want to evaluate the viability of using GPT-J as a stock movement indicator so that I can make more-informed trading decisions.
+\end{itemize}
+\subsubsection{Non-functional requirements}
+\begin{enumerate}
+    \item[•] I will evaluate the correlations between the following items:
+    \begin{enumerate}
+        \item The release of SEC filings for company X and large movements in the stock price of company X.
+        \item The release of news stories mentioning company X and large movements in the stock price of company X.
+        \item The posting of tweets or other social media posts mentioning company X and large movements in the stock price of company X.
+    \end{enumerate}
+    \item[•] I evaluate the best ways of formatting prompts for GPT-J to increase output accuracy and consistency across varying inputs. Some options might include:
+    \begin{enumerate}
+        \item Providing a form for GPT-J to fill out appended to the end of the input data.
+        \item Asking GPT-J a direct question appended to the end of the input data.
+        \item Appending a universe current stock prices to the beginning of the input.
+        \item Appending multiple news stories from the past days and weeks at the beginning of the input.
+    \end{enumerate}
+    \item[•] I will deploy the best model from my previous evaluations and test it on live stock market data. I will compare the model's performance against market indices like the S\&P 500. 
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \scalebox{0.8}{
+    \definecolor{lblue}{RGB}{220, 234, 240}
+    \definecolor{dblue}{RGB}{0, 21, 79}
+    \newcommand\bluebox[3]{\filldraw [draw=dblue,fill=lblue, line width=0.4mm] (#1-1.75,#2-0.75) rectangle (#1+1.75,#2+0.75) node[text=dblue, font=\footnotesize][midway] {\makecell[l]{#3}}}
+    \newcommand\bluearrow[4]{\draw[dblue, -latex, line width=0.8mm] (#1,#2-0.75) -- (#3,#4+0.75);}
+    \newcommand\bluearrownooffset[4]{\draw[dblue, -latex, line width=0.8mm] (#1,#2) -- (#3,#4);}
+    \newcommand\blueline[4]{\draw[dblue, line width=0.8mm] (#1,#2) -- (#3,#4);}
+    \begin{tikzpicture}
+        \bluebox{0}{0}{\textbf{Gather test dataset.}\\(SEC filings, news, social\\media, stock price data)};
+        \bluebox{0}{-2}{\textbf{Evaluate correlations}\\\textbf{between media release}\\\textbf{\& price movement.}};
+        \bluebox{2}{-4}{\textbf{Change type of}\\\textbf{input media.}};
+        \bluebox{0}{-6}{\textbf{Fine-tune training}\\\textbf{on GPT-J.}};
+        \bluebox{2}{-8}{\textbf{Change format of}\\\textbf{input prompt.}};
+        \bluebox{0}{-10}{\textbf{Evaluate prediction}\\\textbf{accuracy.}};
+        \bluebox{0}{-12}{\textbf{Test and evaluate}\\\textbf{on live data.}};
+        \bluearrow{0}{0}{0}{-2};
+        \bluearrow{-1}{-2}{-1}{-6};
+        \blueline{0.25}{-4}{-1}{-4};
+        \bluearrow{-1}{-6}{-1}{-10};
+        \blueline{0.25}{-8}{-1}{-8};
+        \bluearrow{0}{-10}{0}{-12};
+        \blueline{1.75}{-10}{4.21}{-10};
+        \bluearrownooffset{2.75}{-10}{2.75}{-8.75};
+        \blueline{4.25}{-4.04}{4.25}{-10.04};
+        \bluearrownooffset{4.29}{-4}{3.75}{-4};
+        \blueline{2.75}{-7.25}{2.75}{-5.96};
+        \bluearrownooffset{2.75}{-6}{1.75}{-6};
+    \end{tikzpicture}
+    }
+\caption{Execution Flow}
+\end{figure}
+
+\section{Conclusion}
+The conclusion goes here.
+
+\section*{Acknowledgment}
+The authors would like to thank... 
+
+\bibliographystyle{IEEEtran}
+\bibliography{./paper.bib}
+
+\end{document}
