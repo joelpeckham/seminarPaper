@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex paper"] 1633021553 "paper.aux" "paper.bbl" "paper" 1633034800
+["bibtex paper"] 1633386405 "paper.aux" "paper.bbl" "paper" 1633386407
   "./IEEEtran.bst" 1632868869 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "./paper.bib" 1632937538 6574 01b64c788fdd41b823859cf4eaeaecf5 ""
-  "paper.aux" 1633034800 2205 1e48b4689d59c04cb0793bc440ceddd7 "pdflatex"
+  "./paper.bib" 1633383892 9076 7c981fe45c6ac209126ef5121b338860 ""
+  "paper.aux" 1633386407 2632 0fb0550200d5916fa8a108b1fd574c0b "pdflatex"
   (generated)
-  "paper.blg"
   "paper.bbl"
-["pdflatex"] 1633034799 "/Users/joel/Documents/School/Seminar Paper/paper.tex" "/Users/joel/Documents/School/Seminar Paper/paper.pdf" "paper" 1633034800
-  "/Users/joel/Documents/School/Seminar Paper/paper.aux" 1633034800 2205 1e48b4689d59c04cb0793bc440ceddd7 ""
-  "/Users/joel/Documents/School/Seminar Paper/paper.tex" 1633034798 6965 22f48eeaf32669f4c4ac0aaf98e073b8 ""
+  "paper.blg"
+["pdflatex"] 1633386406 "/Users/joel/Documents/School/Seminar Paper/paper.tex" "/Users/joel/Documents/School/Seminar Paper/paper.pdf" "paper" 1633386407
+  "/Users/joel/Documents/School/Seminar Paper/paper.aux" 1633386407 2632 0fb0550200d5916fa8a108b1fd574c0b ""
+  "/Users/joel/Documents/School/Seminar Paper/paper.tex" 1633386402 8237 a21c8a03f48733aa646752fc6c7bfd51 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -161,14 +161,14 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1632865813 2724742 01ff01ffc36b9317db927d243dbeb572 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "IEEEtran.cls" 1632868869 215484 3585e63204c3b8111bb2bf0eda265d43 ""
-  "paper.aux" 1633034800 2205 1e48b4689d59c04cb0793bc440ceddd7 "pdflatex"
-  "paper.bbl" 1633021553 2282 946e9ce9ab813ce174b93a80e377d172 "bibtex paper"
-  "paper.out" 1633034800 1234 7d459fd088de7374dde88ae603f43edc "pdflatex"
-  "paper.tex" 1633034798 6965 22f48eeaf32669f4c4ac0aaf98e073b8 ""
+  "paper.aux" 1633386407 2632 0fb0550200d5916fa8a108b1fd574c0b "pdflatex"
+  "paper.bbl" 1633386406 4806 22a6334cf7dac424308ec4410834fdea "bibtex paper"
+  "paper.out" 1633386407 1234 7d459fd088de7374dde88ae603f43edc "pdflatex"
+  "paper.tex" 1633386402 8237 a21c8a03f48733aa646752fc6c7bfd51 ""
   (generated)
-  "paper.log"
-  "/Users/joel/Documents/School/Seminar Paper/paper.pdf"
-  "/Users/joel/Documents/School/Seminar Paper/paper.log"
-  "paper.pdf"
-  "paper.out"
   "paper.aux"
+  "/Users/joel/Documents/School/Seminar Paper/paper.log"
+  "paper.log"
+  "paper.out"
+  "/Users/joel/Documents/School/Seminar Paper/paper.pdf"
+  "paper.pdf"

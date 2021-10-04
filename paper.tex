@@ -34,6 +34,25 @@ In summary, as algorihmic traders seek to employ increasingly competitive and co
 The contents of this paper are as follows: First we will explore competing algorithms and methods and how they compare with ours in section 2. Then we will describe our algorithm in section 3. Finally, we will evaluate our algorithm's accuracy and profitability using both backtesting and live market data in section 4. 
 
 \section{Background \& Related Works}
+% This section will discuss the common methods used to create trading neural networks. There are two general kinds of data which can be fed into stock trading neural networks, which in turn, create two general categories of trading algorithms. The first kind takes numeric information about a stock and its price history. The second kind takes text information about a stock and its related news. Let's call the first type ``technical traders'' and the second type ``news traders.''
+% \subsection{Technical Traders}
+% Technical traders use time-series data
+Many neural network structures and methods have been used to create trading algorithms. Common types include: 
+\begin{itemize}
+    \item Recurrent Neural Networks (RNNs) \cite{Gu2020}.
+    \begin{itemize}
+        \item LSTMs \cite{Gu2020}\cite{Chen2017}.
+        \item LSTMs with sentiment analysis \cite{Gu2020}\cite{Mehta2021}.
+    \end{itemize}
+    \item Convolutional Neural Networks (CNNs) \cite{Gu2020}\cite{Sezer2018}\cite{Shi2020}.
+    \item Deep reinforment learning (DRN).
+    \begin{itemize}
+        \item Deep Q-learning \cite{Wang2017} \cite{Nan2020}.
+        \item Deep robust reinforcement learning \cite{Li2019}.
+    \end{itemize}
+    \item Conventional deep learning \cite{Day2016}.
+\end{itemize}
+
 \section{Execution Plan}
 \subsection{Requirements \& Goals}
 \subsubsection{Functional requirements (user stories)}
