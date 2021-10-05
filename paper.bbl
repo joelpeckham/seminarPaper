@@ -56,14 +56,6 @@ L.~Gao, S.~Biderman, S.~Black, L.~Golding, T.~Hoppe, C.~Foster, J.~Phang,
   \url{https://arxiv.org/abs/2101.00027}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Gu2020}
-\BIBentryALTinterwordspacing
-Y.~Gu, T.~Shibukawa, Y.~Kondo, S.~Nagao, and S.~Kamijo, ``Prediction of stock
-  performance using deep neural networks,'' \emph{Applied Sciences}, vol.~10,
-  no.~22, 2020. [Online]. Available:
-  \url{https://www.mdpi.com/2076-3417/10/22/8142}
-\BIBentrySTDinterwordspacing
-
 \bibitem{Chen2017}
 G.~Chen, Y.~Chen, and T.~Fushimi, ``Application of deep learning to algorithmic
   trading,'' 2017.
@@ -75,6 +67,19 @@ P.~Mehta, S.~Pandya, and K.~Kotecha, ``Harvesting social media sentiment
   \emph{{PeerJ} Computer Science}, vol.~7, p. e476, Apr. 2021. [Online].
   Available: \url{https://doi.org/10.7717/peerj-cs.476}
 \BIBentrySTDinterwordspacing
+
+\bibitem{Gu2020}
+\BIBentryALTinterwordspacing
+Y.~Gu, T.~Shibukawa, Y.~Kondo, S.~Nagao, and S.~Kamijo, ``Prediction of stock
+  performance using deep neural networks,'' \emph{Applied Sciences}, vol.~10,
+  no.~22, 2020. [Online]. Available:
+  \url{https://www.mdpi.com/2076-3417/10/22/8142}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Chen2015}
+K.~Chen, Y.~Zhou, and F.~Dai, ``A lstm-based method for stock returns
+  prediction: A case study of china stock market,'' in \emph{2015 IEEE
+  International Conference on Big Data (Big Data)}, 2015, pp. 2823--2824.
 
 \bibitem{Sezer2018}
 \BIBentryALTinterwordspacing
@@ -115,6 +120,13 @@ M.-Y. Day and C.-C. Lee, ``Deep learning for financial sentiment analysis on
   on Advances in Social Networks Analysis and Mining ({ASONAM})}.\hskip 1em
   plus 0.5em minus 0.4em\relax {IEEE}, Aug. 2016. [Online]. Available:
   \url{https://doi.org/10.1109/asonam.2016.7752381}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Schmitz2020}
+\BIBentryALTinterwordspacing
+J.~Schmitz, ``Stock predictions with state-of-the-art transformer and time
+  embeddings,'' Sep 2020. [Online]. Available:
+  \url{https://towardsdatascience.com/stock-predictions-with-state-of-the-art-transformer-and-time-embeddings-3a4485237de6}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

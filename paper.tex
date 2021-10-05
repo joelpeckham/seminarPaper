@@ -4,7 +4,10 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{makecell}
-\usepackage{hyperref}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+\usepackage[breaklinks]{hyperref}
 \begin{document}
 
 \title{Algorithmically Trading like a Human with GPT-J}
@@ -34,24 +37,21 @@ In summary, as algorihmic traders seek to employ increasingly competitive and co
 The contents of this paper are as follows: First we will explore competing algorithms and methods and how they compare with ours in section 2. Then we will describe our algorithm in section 3. Finally, we will evaluate our algorithm's accuracy and profitability using both backtesting and live market data in section 4. 
 
 \section{Background \& Related Works}
-% This section will discuss the common methods used to create trading neural networks. There are two general kinds of data which can be fed into stock trading neural networks, which in turn, create two general categories of trading algorithms. The first kind takes numeric information about a stock and its price history. The second kind takes text information about a stock and its related news. Let's call the first type ``technical traders'' and the second type ``news traders.''
-% \subsection{Technical Traders}
-% Technical traders use time-series data
-Many neural network structures and methods have been used to create trading algorithms. Common types include: 
+Many neural network structures and methods have been used to create trading algorithms. Some types include: 
 \begin{itemize}
-    \item Recurrent Neural Networks (RNNs) \cite{Gu2020}.
-    \begin{itemize}
-        \item LSTMs \cite{Gu2020}\cite{Chen2017}.
-        \item LSTMs with sentiment analysis \cite{Gu2020}\cite{Mehta2021}.
-    \end{itemize}
-    \item Convolutional Neural Networks (CNNs) \cite{Gu2020}\cite{Sezer2018}\cite{Shi2020}.
+    \item Recurrent neural networks (RNNs) \& Long short-term memory (LSTMs) \cite{Chen2017}\cite{Mehta2021}.
+    \\\emph{These are the most widely used network architectures for trading \cite{Gu2020}. An LSTM trained on 900,000 sequences of length 30 days of Chinese stock market data yeilded an improvement of 12.9\% in prediction accuracy over a random guess \cite{Chen2015}.}
+    \item Convolutional Neural Networks (CNNs) \cite{Gu2020}
+    \\\emph{CNNs can be used by converting time-series data into images \cite{Sezer2018}. Or they can be used to extract sentiment features from text \cite{Shi2020}.}
     \item Deep reinforment learning (DRN).
     \begin{itemize}
         \item Deep Q-learning \cite{Wang2017} \cite{Nan2020}.
         \item Deep robust reinforcement learning \cite{Li2019}.
     \end{itemize}
     \item Conventional deep learning \cite{Day2016}.
+    \item Transformer networks \cite{Schmitz2020}.
 \end{itemize}
+Most relevent to our work are methods that incorperate sentiment analysis of news sources. Mehta et al. (2021) evaluated a sentiment analysis methods and found that LSTMs could properly classify news tweets as indicative of positive or negative price movement with an accuracy of 92\% correct \cite{Mehta2021}. Nan \& Zaiane (2020) found that adding sentiment analysis to a Deep-Q learning algorithm could improve the sharpe ratio of the agent by a factor greater than 2 in their test cases. \cite{Nan2020}.
 
 \section{Execution Plan}
 \subsection{Requirements \& Goals}
@@ -112,12 +112,13 @@ Many neural network structures and methods have been used to create trading algo
     }
 \caption{Execution Flow}
 \end{figure}
-
+\section{Implementation}
 \section{Conclusion}
 The conclusion goes here.
 
 \section*{Acknowledgment}
 The authors would like to thank... 
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{./paper.bib}
