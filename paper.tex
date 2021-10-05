@@ -9,6 +9,7 @@
 \usepackage{breakurl}
 \usepackage[breaklinks]{hyperref}
 % \usepackage{flushend}
+\usepackage{lipsum}  
 \begin{document}
 
 \title{Algorithmically Trading like a Human with GPT-J}
@@ -20,17 +21,19 @@ Collegedale, TN 37363\\
 Email: joelskyler@gmail.com}}
 
 % make the title area
+
 \maketitle
+
 % \cleardoublepage
+\begin{abstract}
+    \lipsum[1]
+\end{abstract}
 % \tableofcontents
 % \listoffigures
 % \cleardoublepage
 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
-\begin{abstract}
-The abstract goes here.
-\end{abstract}
 \section{Introduction}
 Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The next generation of trading algorithms use neural networks to improve prediction accuracy. However, current opinion states neural networks can only increase efficiency by about 10\% and that neural networks are not capable of inventing winning trading ideas \cite{Vonko2021}. We theorize that neural networks are capable of much more. By scaling the number of network parameters into the billions, training the network on a massive dataset which captures the complexities of human behavior, and then making inferences from current  and by feeding the network with current news and opinons we believe that neural networks can model the world accurately enough to discover winning, novel trade ideas. Thankfully, the creators of GPT-J have already created such a neural network \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modelling data set called The Pile \cite{Gao2021}. We propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
 
