@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {I}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {\mbox {I-A}}Problem Statement}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {II}Background \& Related Works}{1}{section.2}%
+\contentsline {section}{\numberline {III}Execution Plan}{2}{section.3}%
+\contentsline {subsection}{\numberline {\mbox {III-A}}Requirements \& Goals}{2}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {\mbox {III-A}1}Functional requirements (user stories)}{2}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {\mbox {III-A}2}Non-functional requirements}{2}{subsubsection.3.1.2}%
+\contentsline {section}{\numberline {IV}Implementation}{2}{section.4}%
+\contentsline {section}{\numberline {V}Conclusion}{2}{section.5}%
+\contentsline {section}{References}{2}{section*.4}%
