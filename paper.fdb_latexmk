@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex paper"] 1633402215 "paper.aux" "paper.bbl" "paper" 1633402298
+["bibtex paper"] 1633443706 "paper.aux" "paper.bbl" "paper" 1633443741
   "./IEEEtran.bst" 1632868869 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "./paper.bib" 1633402295 9981 8562cfe5e418de59f5cdcb0387982e7a ""
-  "paper.aux" 1633402216 2839 3a8e2e0d63978a21fc9dd80c25812d0f "pdflatex"
+  "./paper.bib" 1633443695 11472 4abbf23f6373613398fc4ca310edba83 ""
+  "paper.aux" 1633443741 2944 b653cffa136998cdcb8a837d11f87351 "pdflatex"
   (generated)
-  "paper.blg"
   "paper.bbl"
-["pdflatex"] 1633402215 "/Users/joel/Documents/School/Seminar Paper/paper.tex" "/Users/joel/Documents/School/Seminar Paper/paper.pdf" "paper" 1633402298
-  "/Users/joel/Documents/School/Seminar Paper/paper.aux" 1633402216 2839 3a8e2e0d63978a21fc9dd80c25812d0f ""
-  "/Users/joel/Documents/School/Seminar Paper/paper.tex" 1633401910 8634 a03642bb48a3b6fe0a5bfa94e0c5f222 ""
+  "paper.blg"
+["pdflatex"] 1633443739 "/Users/joel/Documents/School/Seminar Paper/paper.tex" "/Users/joel/Documents/School/Seminar Paper/paper.pdf" "paper" 1633443741
+  "/Users/joel/Documents/School/Seminar Paper/paper.aux" 1633443741 2944 b653cffa136998cdcb8a837d11f87351 ""
+  "/Users/joel/Documents/School/Seminar Paper/paper.tex" 1633443739 9500 46f0103073b4873ca20386709c44733a ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -116,6 +116,7 @@
   "/usr/local/texlive/2021/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1610149055 2596 b3a02e33035865e9f0457e064d436fb8 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/breakurl/breakurl.sty" 1365893995 8468 9af34887a0e6e535b004c39238830991 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
+  "/usr/local/texlive/2021/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -154,6 +155,7 @@
   "/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd" 1137110629 619 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575674187 9715 b051d5b493d9fe5f4bc251462d039e5f ""
+  "/usr/local/texlive/2021/texmf-dist/tex/latex/sttools/flushend.sty" 1603745969 35452 1decbcc43e526caf507a9089d64be262 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/svg/svg.sty" 1606428179 43468 671ae75b3a15019004495eff4c0911e8 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/tools/array.sty" 1601675358 12675 9a7bbb9e485cd81cdcc1d56212b088ff ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/tools/shellesc.sty" 1580683321 4120 d1680a5ff60d0aea9c327e07c030f4e9 ""
@@ -167,14 +169,14 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1632865813 2724742 01ff01ffc36b9317db927d243dbeb572 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "IEEEtran.cls" 1632868869 215484 3585e63204c3b8111bb2bf0eda265d43 ""
-  "paper.aux" 1633402216 2839 3a8e2e0d63978a21fc9dd80c25812d0f "pdflatex"
-  "paper.bbl" 1633402215 5666 d1fc80cb055e3d72f92335fdec9b8e49 "bibtex paper"
-  "paper.out" 1633402216 1347 92307bbec2678045d0575bff8f08c38c "pdflatex"
-  "paper.tex" 1633401910 8634 a03642bb48a3b6fe0a5bfa94e0c5f222 ""
+  "paper.aux" 1633443741 2944 b653cffa136998cdcb8a837d11f87351 "pdflatex"
+  "paper.bbl" 1633443706 6451 1ac936dc6d196ade091ed5588e01283b "bibtex paper"
+  "paper.out" 1633443741 1347 92307bbec2678045d0575bff8f08c38c "pdflatex"
+  "paper.tex" 1633443739 9500 46f0103073b4873ca20386709c44733a ""
   (generated)
-  "paper.aux"
   "paper.out"
   "paper.log"
+  "paper.aux"
   "/Users/joel/Documents/School/Seminar Paper/paper.pdf"
-  "paper.pdf"
   "/Users/joel/Documents/School/Seminar Paper/paper.log"
+  "paper.pdf"

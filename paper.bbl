@@ -135,4 +135,21 @@ J.~Schmitz, ``Stock predictions with state-of-the-art transformer and time
   \url{https://towardsdatascience.com/stock-predictions-with-state-of-the-art-transformer-and-time-embeddings-3a4485237de6}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Brown2020}
+\BIBentryALTinterwordspacing
+T.~B. Brown, B.~Mann, N.~Ryder, M.~Subbiah, J.~Kaplan, P.~Dhariwal,
+  A.~Neelakantan, P.~Shyam, G.~Sastry, A.~Askell, S.~Agarwal,
+  A.~Herbert{-}Voss, G.~Krueger, T.~Henighan, R.~Child, A.~Ramesh, D.~M.
+  Ziegler, J.~Wu, C.~Winter, C.~Hesse, M.~Chen, E.~Sigler, M.~Litwin, S.~Gray,
+  B.~Chess, J.~Clark, C.~Berner, S.~McCandlish, A.~Radford, I.~Sutskever, and
+  D.~Amodei, ``Language models are few-shot learners,'' \emph{CoRR}, vol.
+  abs/2005.14165, 2020. [Online]. Available:
+  \url{https://arxiv.org/abs/2005.14165}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gpt-j}
+B.~Wang and A.~Komatsuzaki, ``{GPT-J-6B: A 6 Billion Parameter Autoregressive
+  Language Model},'' \url{https://github.com/kingoflolz/mesh-transformer-jax},
+  May 2021.
+
 \end{thebibliography}

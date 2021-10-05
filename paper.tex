@@ -8,6 +8,8 @@
 \def\UrlBreaks{\do\/\do-}
 \usepackage{breakurl}
 \usepackage[breaklinks]{hyperref}
+\usepackage{flushend}
+% \usepackage{balance}
 \begin{document}
 
 \title{Algorithmically Trading like a Human with GPT-J}
@@ -53,33 +55,35 @@ Many neural network structures and methods have been used to create trading algo
 \end{itemize}
 Most relevent to our work are methods that incorperate sentiment analysis of news sources. Mehta et al. (2021) evaluated a sentiment analysis methods and found that LSTMs could properly classify news tweets as indicative of positive or negative price movement with an accuracy of 92\% correct \cite{Mehta2021}. Nan \& Zaiane (2020) found that adding sentiment analysis to a Deep-Q learning algorithm could improve the sharpe ratio of the agent by a factor greater than 2 in their test cases. \cite{Nan2020}.
 
+By our estimation, the vast majortity of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippits because of the memory limitations of RNN sentiment classifiers. With the indruduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Our method will encode the current world state in a large text-input wich combines sentiment, real-world facts, and stock price data into a single input. We believe that this new network can be trained to learn to trade like a human.
+
 \section{Execution Plan}
 \subsection{Requirements \& Goals}
 \subsubsection{Functional requirements (user stories)}
 \begin{itemize}
-\item As a finance researcher, I want to quantify the ability of news releases, SEC filings, and social media posts to move stock prices.
-\item As an AI researcher, I want to evaluate the viability of using GPT-J as a stock movement indicator so that I can understand the power of GPT-J to understand complex real-world interactions.
-\item As an algorithmic trader, I want to evaluate the viability of using GPT-J as a stock movement indicator so that I can make more-informed trading decisions.
+\item As finance researchers, we want to quantify the ability of news releases, SEC filings, and social media posts to move stock prices.
+\item As AI researchers, we want to evaluate the viability of using GPT-J as a stock movement indicator so that we can understand the power of GPT-J to understand complex real-world interactions.
+\item As algorithmic traders, we want to evaluate the viability of using GPT-J as a stock movement indicator so that I can make more-informed trading decisions.
 \end{itemize}
 \subsubsection{Non-functional requirements}
 \begin{enumerate}
-    \item[•] I will evaluate the correlations between the following items:
+    \item[•] We will evaluate the correlations between the following items:
     \begin{enumerate}
         \item The release of SEC filings for company X and large movements in the stock price of company X.
         \item The release of news stories mentioning company X and large movements in the stock price of company X.
         \item The posting of tweets or other social media posts mentioning company X and large movements in the stock price of company X.
     \end{enumerate}
-    \item[•] I evaluate the best ways of formatting prompts for GPT-J to increase output accuracy and consistency across varying inputs. Some options might include:
+    \item[•] We will evaluate the best ways of formatting prompts for GPT-J to increase output accuracy and consistency across varying inputs. Some options might include:
     \begin{enumerate}
         \item Providing a form for GPT-J to fill out appended to the end of the input data.
         \item Asking GPT-J a direct question appended to the end of the input data.
         \item Appending a universe current stock prices to the beginning of the input.
         \item Appending multiple news stories from the past days and weeks at the beginning of the input.
     \end{enumerate}
-    \item[•] I will deploy the best model from my previous evaluations and test it on live stock market data. I will compare the model's performance against market indices like the S\&P 500. 
+    \item[•] We will deploy the best model from my previous evaluations and test it on live stock market data. I will compare the model's performance against market indices like the S\&P 500. 
 \end{enumerate}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \scalebox{0.8}{
     \definecolor{lblue}{RGB}{220, 234, 240}
