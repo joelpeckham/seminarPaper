@@ -8,8 +8,7 @@
 \def\UrlBreaks{\do\/\do-}
 \usepackage{breakurl}
 \usepackage[breaklinks]{hyperref}
-\usepackage{flushend}
-% \usepackage{balance}
+% \usepackage{flushend}
 \begin{document}
 
 \title{Algorithmically Trading like a Human with GPT-J}
@@ -55,7 +54,7 @@ Many neural network structures and methods have been used to create trading algo
 \end{itemize}
 Most relevent to our work are methods that incorperate sentiment analysis of news sources. Mehta et al. (2021) evaluated a sentiment analysis methods and found that LSTMs could properly classify news tweets as indicative of positive or negative price movement with an accuracy of 92\% correct \cite{Mehta2021}. Nan \& Zaiane (2020) found that adding sentiment analysis to a Deep-Q learning algorithm could improve the sharpe ratio of the agent by a factor greater than 2 in their test cases. \cite{Nan2020}.
 
-By our estimation, the vast majortity of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippits because of the memory limitations of RNN sentiment classifiers. With the indruduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Our method will encode the current world state in a large text-input wich combines sentiment, real-world facts, and stock price data into a single input. We believe that this new network can be trained to learn to trade like a human.
+By our estimation, the vast majortity of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippits because of the memory limitations of RNN sentiment classifiers. With the indruduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or Wang \& Komatsuzaki's GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Our method will encode the current world state in a large text-input wich combines sentiment, real-world facts, and stock price data into a single input. We believe that this new network can be trained to learn to trade like a human.
 
 \section{Execution Plan}
 \subsection{Requirements \& Goals}
@@ -83,7 +82,7 @@ By our estimation, the vast majortity of previous works involving sentiment anal
     \item[•] We will deploy the best model from my previous evaluations and test it on live stock market data. I will compare the model's performance against market indices like the S\&P 500. 
 \end{enumerate}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \scalebox{0.8}{
     \definecolor{lblue}{RGB}{220, 234, 240}

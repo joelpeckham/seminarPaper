@@ -8,8 +8,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./paper.bib
-Warning--entry type for "Schmitz2020" isn't style-file defined
---line 219 of file ./paper.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -56,4 +54,3 @@ warning$ -- 0
 while$ -- 30
 width$ -- 20
 write$ -- 216
-(There was 1 warning)
