@@ -57,8 +57,11 @@ L.~Gao, S.~Biderman, S.~Black, L.~Golding, T.~Hoppe, C.~Foster, J.~Phang,
 \BIBentrySTDinterwordspacing
 
 \bibitem{Chen2017}
+\BIBentryALTinterwordspacing
 G.~Chen, Y.~Chen, and T.~Fushimi, ``Application of deep learning to algorithmic
-  trading,'' 2017.
+  trading,'' 2017. [Online]. Available:
+  \url{http://cs229.stanford.edu/proj2017/final-reports/5241098.pdf}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Mehta2021}
 \BIBentryALTinterwordspacing
@@ -98,8 +101,11 @@ Y.~Shi, Y.~Zheng, K.~Guo, and X.~Ren, ``Stock movement prediction with
 \BIBentrySTDinterwordspacing
 
 \bibitem{Wang2017}
+\BIBentryALTinterwordspacing
 Y.~Wang, D.~Wang, S.~Zhang, Y.~Feng, S.~Li, and Q.~Zhou, ``Deep q-trading,''
-  2017.
+  2017. [Online]. Available:
+  \url{http://cslt.riit.tsinghua.edu.cn/mediawiki/images/5/5f/Dtq.pdf}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Nan2020}
 A.~Nan, A.~Perumal, and O.~R. Zaiane, ``Sentiment and knowledge based

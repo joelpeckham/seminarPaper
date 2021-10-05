@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex paper"] 1633401909 "paper.aux" "paper.bbl" "paper" 1633401913
+["bibtex paper"] 1633402215 "paper.aux" "paper.bbl" "paper" 1633402298
   "./IEEEtran.bst" 1632868869 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "./paper.bib" 1633401634 9826 67b7d75c5a87b42c3f1c50d7af1edc86 ""
-  "paper.aux" 1633401912 2839 3a8e2e0d63978a21fc9dd80c25812d0f "pdflatex"
+  "./paper.bib" 1633402295 9981 8562cfe5e418de59f5cdcb0387982e7a ""
+  "paper.aux" 1633402216 2839 3a8e2e0d63978a21fc9dd80c25812d0f "pdflatex"
   (generated)
-  "paper.bbl"
   "paper.blg"
-["pdflatex"] 1633401911 "/Users/joel/Documents/School/Seminar Paper/paper.tex" "/Users/joel/Documents/School/Seminar Paper/paper.pdf" "paper" 1633401913
-  "/Users/joel/Documents/School/Seminar Paper/paper.aux" 1633401912 2839 3a8e2e0d63978a21fc9dd80c25812d0f ""
+  "paper.bbl"
+["pdflatex"] 1633402215 "/Users/joel/Documents/School/Seminar Paper/paper.tex" "/Users/joel/Documents/School/Seminar Paper/paper.pdf" "paper" 1633402298
+  "/Users/joel/Documents/School/Seminar Paper/paper.aux" 1633402216 2839 3a8e2e0d63978a21fc9dd80c25812d0f ""
   "/Users/joel/Documents/School/Seminar Paper/paper.tex" 1633401910 8634 a03642bb48a3b6fe0a5bfa94e0c5f222 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -167,14 +167,14 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1632865813 2724742 01ff01ffc36b9317db927d243dbeb572 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "IEEEtran.cls" 1632868869 215484 3585e63204c3b8111bb2bf0eda265d43 ""
-  "paper.aux" 1633401912 2839 3a8e2e0d63978a21fc9dd80c25812d0f "pdflatex"
-  "paper.bbl" 1633401909 5368 717e43a3cbb7f8e40cf76456d8a528b5 "bibtex paper"
-  "paper.out" 1633401912 1347 92307bbec2678045d0575bff8f08c38c "pdflatex"
+  "paper.aux" 1633402216 2839 3a8e2e0d63978a21fc9dd80c25812d0f "pdflatex"
+  "paper.bbl" 1633402215 5666 d1fc80cb055e3d72f92335fdec9b8e49 "bibtex paper"
+  "paper.out" 1633402216 1347 92307bbec2678045d0575bff8f08c38c "pdflatex"
   "paper.tex" 1633401910 8634 a03642bb48a3b6fe0a5bfa94e0c5f222 ""
   (generated)
   "paper.aux"
-  "/Users/joel/Documents/School/Seminar Paper/paper.log"
   "paper.out"
   "paper.log"
-  "paper.pdf"
   "/Users/joel/Documents/School/Seminar Paper/paper.pdf"
+  "paper.pdf"
+  "/Users/joel/Documents/School/Seminar Paper/paper.log"
