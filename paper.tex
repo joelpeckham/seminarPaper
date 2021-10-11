@@ -71,6 +71,7 @@ By our estimation, the vast majortity of previous works involving sentiment anal
 \item As algorithmic traders, we want to evaluate the viability of using GPT-J as a stock movement indicator so that I can make more-informed trading decisions.
 \end{itemize}
 \subsubsection{Non-functional requirements}
+Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is as follows:
 \begin{enumerate}
     \item[•] We will evaluate the correlations between the following items:
     \begin{enumerate}
@@ -120,11 +121,28 @@ By our estimation, the vast majortity of previous works involving sentiment anal
     \end{tikzpicture}
     }
 \caption{Execution Flow}
+\label{fig:executionFlow}
 \end{figure}
 \subsection{Testing \& Evaulation Methods}
-To measure the correlation between the release of 
-https://www.eventstudytools.com/introduction-event-study-methodology
+\subsubsection{Media Release Correlations}
+To measure the correlation between the release of a media item such as an SEC filing or news story, we will use the standard event study method as detailed in \cite{Neuhierl2010}. This method uses abormal returns in a given period to calculate the effect of a certian event on a stock's price. Abnormal return for a given day is defined as 
+\begin{equation}
+    AR_{i,t}=R_{i,t}-(\alpha_i+\beta_i R_{m,t})
+\end{equation}
+for firm $i$ at time $t$ where $\alpha_i$ and $\beta_i$ represent the relationship between a given stock and it's refrence index. And where $R_{m,t}$ is the return of the actual reference market.
 
+We will then take large sample of media release events of the same type and calculate the average abnormal return as follows:
+\begin{equation}
+    AAR= \frac{1}{N} \sum\limits_{i=1}^{N}AR_{i,t}
+\end{equation}
+
+Finally, we meausre the total impact of the event over a given period of time by using cumulate abnormal return:
+\begin{equation}
+    CAR(t_1,t_2)=\sum\limits_{t=t_1}^{t_2} AR_{i,t} 
+\end{equation}
+where $t_1$ and $t_2$ are the start and end dates of the event window.
+\subsubsection{GPT-J Model prediction accuracy}
+To evaluate the accuracy of our model given different input data, 
 \section{Implementation}
 \section{Conclusion}
 The conclusion goes here.
