@@ -10,7 +10,6 @@
 \usepackage[breaklinks]{hyperref}
 \usepackage{lipsum}  
 
-
 \begin{document}
 
 \begin{titlepage}
@@ -159,33 +158,8 @@ Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is a
 We plan to use the publically availabe Yahoo Finance API \cite{yahoofinanceapi} to gather general technical information about a given ticker symbol. 
 For historical price data, we will use the Alpaca Data API v2 \cite{alpacadataapi}. This API gives access to 5 years of historical data for training and live price data for live model inference testing. 
 \subsubsection{SEC Filings}
-The SEC provides public access to their EDGAR database of public company filings \cite{Sec.gov_2021}. The EDGAR API can be used to download the most recent SEC filings for a given company for live trading. Or for training, bulk datasets are available for download. The release dates of each filing can then be labeled with the stock prices of the company before and after the filing.
+The SEC provides public access to their EDGAR database of public company filings \cite{Sec.gov_2021}. The EDGAR API can be used to download the most recent SEC filings for a given company for live trading. Or for training, bulk datasets are available for download.
 \subsubsection{News}
-We will scrape financial news websites for a large set of historical articles. We intend to create a backlog of articles from the sources listed in Table \ref{table:newsSources}.
-\begin{table}[ht]
-    \caption{News Sources}
-    \centering
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Source} & \textbf{URL} \\
-        \hline
-        Bloomberg & \href{https://www.bloomberg.com/}{www.bloomberg.com} \\
-        \hline
-        CNBC Finance & \href{https://www.cnbc.com/finance/}{www.cnbc.com/finance} \\
-        \hline
-        Reuters & \href{https://www.reuters.com/}{www.reuters.com} \\
-        \hline
-        Forbes & \href{https://www.forbes.com/}{www.forbes.com} \\
-        \hline
-        CNN Business & \href{https://www.cnn.com/business}{www.cnn.com/business} \\
-        \hline
-        Yahoo Finance & \href{https://finance.yahoo.com/news}{www.finance.yahoo.com/news} \\
-        \hline
-        Wall Street Journal & \href{https://www.wsj.com/}{www.wsj.com/} \\
-        \hline
-    \end{tabular}
-    \label{table:newsSources}
-\end{table}
 
 \subsubsection{Social Media}
 \subsection{Testing \& Evaulation Methods}
