@@ -12,7 +12,7 @@
 \contentsline {subsubsection}{\numberline {\mbox {III-B}2}SEC Filings}{3}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {\mbox {III-B}3}News}{3}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {\mbox {III-B}4}Social Media}{3}{subsubsection.3.2.4}%
-\contentsline {subsection}{\numberline {\mbox {III-C}}Testing \& Evaulation Methods}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {\mbox {III-C}}Testing \& Evaluation Methods}{3}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {\mbox {III-C}1}Media Release Correlations}{3}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {\mbox {III-C}2}GPT-J Model prediction accuracy}{3}{subsubsection.3.3.2}%
 \contentsline {section}{\numberline {IV}Implementation}{4}{section.4}%

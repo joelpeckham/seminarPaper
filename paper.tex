@@ -48,7 +48,7 @@
 
 \section{Introduction}
 \subsection{Background}
-Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The next generation of trading algorithms use neural networks to improve prediction accuracy. However, current opinion states neural networks can only increase efficiency by about 10\% and that neural networks are not capable of inventing winning trading ideas \cite{Vonko2021}. We theorize that neural networks are capable of much more. By scaling the number of network parameters into the billions, training the network on a massive data-set which captures the complexities of human behavior, and then making inferences from current  and by feeding the network with current news and opinions we believe that neural networks can model the world accurately enough to discover winning, novel trade ideas. Thankfully, the creators of GPT-J have already created such a neural network \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. 
+Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The next generation of trading algorithms use neural networks to improve prediction accuracy. However, current opinion states neural networks can only increase efficiency by about 10\% and that neural networks are not capable of inventing winning trading ideas \cite{Vonko2021}. We theorize that neural networks are capable of much more. By scaling the number of network parameters into the billions, training the network on a massive dataset which captures the complexities of human behavior, and then making inferences from current  and by feeding the network with current news and opinions we believe that neural networks can model the world accurately enough to discover winning, novel trade ideas. Thankfully, the creators of GPT-J have already created such a neural network \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. 
 
 \subsection{Intent}
 We propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
@@ -76,7 +76,7 @@ Many neural network structures and methods have been used to create trading algo
 
 Most relevant to our work are methods that incorporate sentiment analysis of news sources. Mehta et al. (2021) evaluated a sentiment analysis methods and found that LSTMs could properly classify news tweets as indicative of positive or negative price movement with an accuracy of 92\% correct \cite{Mehta2021}. Nan \& Zaiane (2020) found that adding sentiment analysis to a Deep-Q learning algorithm could improve the Sharpe ratio of the agent by a factor greater than 2 in their test cases. \cite{Nan2020}.
 
-By our estimation, the vast majority of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series data-set. News sources were often limited to headlines, tweets and small snippets because of the memory limitations of RNN sentiment classifiers. With the introduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or Wang \& Komatsuzaki's GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Our method will encode the current world state in a large text-input which combines sentiment, real-world facts, and stock price data into a single input. We believe that this new network can be trained to learn to trade like a human.
+By our estimation, the vast majority of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippets because of the memory limitations of RNN sentiment classifiers. With the introduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or Wang \& Komatsuzaki's GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Our method will encode the current world state in a large text-input which combines sentiment, real-world facts, and stock price data into a single input. We believe that this new network can be trained to learn to trade like a human.
 
 \section{Execution Plan}
 \subsection{Requirements \& Goals}
@@ -139,12 +139,12 @@ Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is a
 	\caption{Execution Flow}
 	\label{fig:executionFlow}
 \end{figure}
-\subsection{Data-set Gathering}
+\subsection{Dataset Gathering}
 \subsubsection{Stock Price Data}
 We plan to use the publicly available Yahoo Finance API \cite{yahoofinanceapi} to gather general technical information about a given ticker symbol. 
 For historical price data, we will use the Alpaca Data API v2 \cite{alpacadataapi}. This API gives access to 5 years of historical data for training and live price data for live model inference testing. 
 \subsubsection{SEC Filings}
-The SEC provides public access to their EDGAR database of public company filings \cite{Sec.gov_2021}. The EDGAR API can be used to download the most recent SEC filings for a given company for live trading. Or for training, bulk data-sets are available for download. The release dates of each filing can then be labeled with the stock prices of the company before and after the filing.
+The SEC provides public access to their EDGAR database of public company filings \cite{Sec.gov_2021}. The EDGAR API can be used to download the most recent SEC filings for a given company for live trading. Or for training, bulk datasets are available for download. The release dates of each filing can then be labeled with the stock prices of the company before and after the filing.
 \subsubsection{News}
 We will scrape financial news websites for a large set of historical articles. We intend to create a backlog of articles from the sources listed in Table \ref{table:newsSources}.
 \begin{table}[ht]
@@ -173,7 +173,7 @@ We will scrape financial news websites for a large set of historical articles. W
 \end{table}
 
 \subsubsection{Social Media}
-We will focus on Twitter for our social media data. The Twitter API \cite{twitterapi} will allow us to gather timely opinions on a given ticker symbol. After filtering for a specific time period, tweets can be added to our training data-set.
+We will focus on Twitter for our social media data. The Twitter API \cite{twitterapi} will allow us to gather timely opinions on a given ticker symbol. After filtering for a specific time period, tweets can be added to our training dataset.
 
 \subsection{Testing \& Evaluation Methods}
 \subsubsection{Media Release Correlations}
