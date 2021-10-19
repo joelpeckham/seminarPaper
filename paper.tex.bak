@@ -139,7 +139,7 @@ Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is a
 	\caption{Execution Flow}
 	\label{fig:executionFlow}
 \end{figure}
-\subsection{Data-set Gathering}
+\subsection{Dataset Gathering}
 \subsubsection{Stock Price Data}
 We plan to use the publicly available Yahoo Finance API \cite{yahoofinanceapi} to gather general technical information about a given ticker symbol. 
 For historical price data, we will use the Alpaca Data API v2 \cite{alpacadataapi}. This API gives access to 5 years of historical data for training and live price data for live model inference testing. 
