@@ -214,6 +214,12 @@ The second metric is a simple ratio of the actual stock price to the predicted s
 \end{equation}
 We will use the price accuracy metric as our loss-function in fine-tune training of GPT-J. The format-correctness metric will be used to evaluate the reliability and robustness of our prompt. We may experiment with using the format-correctness metric as a weighted portion of our loss function.
 \section{Implementation}
+\subsection{Data Gathering}
+We used a Digital Ocean droplet for data gathering and processing. This allowed us to dedicate a machine for long-running webscraping tasks and transfer data with a fast and reliable connection. 
+\subsubsection{News Web Scraping}
+Using the free tier of Mediastack's news API, we are able to search a corpus of historical news articles, getting metadata about the articles and the URL pointing to their content. Critically, the Mediastack API provides exact publication times so each article can properly be associated with a stock price movement event. We can then use the URL to download the content of the article. Extracting main article text from the HTML can be done with the BeautifulSoup python library on a source by source basis. 
+
+\section{Results}
 \section{Conclusion}
 The conclusion goes here.
 

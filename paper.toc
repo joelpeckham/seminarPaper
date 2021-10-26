@@ -18,5 +18,8 @@
 \contentsline {subsubsection}{\numberline {\mbox {III-C}1}Media Release Correlations}{3}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {\mbox {III-C}2}GPT-J Model prediction accuracy}{4}{subsubsection.3.3.2}%
 \contentsline {section}{\numberline {IV}Implementation}{4}{section.4}%
-\contentsline {section}{\numberline {V}Conclusion}{4}{section.5}%
+\contentsline {subsection}{\numberline {\mbox {IV-A}}Data Gathering}{4}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {\mbox {IV-A}1}News Web Scraping}{4}{subsubsection.4.1.1}%
+\contentsline {section}{\numberline {V}Results}{4}{section.5}%
+\contentsline {section}{\numberline {VI}Conclusion}{4}{section.6}%
 \contentsline {section}{References}{4}{section*.5}%
