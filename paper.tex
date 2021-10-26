@@ -47,21 +47,22 @@
 
 \section{Introduction}
 \subsection{Background}
-Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The current generation of trading algorithms now use neural networks to improve prediction accuracy. However, some believe neural networks are incapabale of inventing novel trading ideas and therefore can only increase trading efficiency by ~10\% \cite{Vonko2021}. On the other hand, we propose that recent increases in the scale of neural networks can unlock the ability to algorithmically invent winning trades. 
+Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The current generation of trading algorithms now use neural networks to improve prediction accuracy. However, some believe neural networks are incapable of inventing novel trading ideas and therefore can only increase trading efficiency by ~10\% \cite{Vonko2021}. On the other hand, we propose that recent increases in the scale of neural networks can unlock the ability to algorithmically invent winning trades. 
 
-Specifically, we propose that large-scale natural language processing models such as OpenAi's GPT-3 \cite{Brown2020} have captured a large enough undertanding of the world, that given the proper input, they can generate novel, winning trades. Transformer networks of this type are designed to both ingest and output text. We propose that by properly enginnering our input text prompts, we can leverage the massive amount of real-world knowledge encoded in the network's weights.
+Specifically, we propose that large-scale natural language processing models such as OpenAi's GPT-3 \cite{Brown2020} have captured a large enough understanding of the world, that given the proper input, they can generate novel, winning trades. Transformer networks of this type are designed to both ingest and output text. We propose that by properly engineering our input text prompts, we can leverage the massive amount of real-world knowledge encoded in the network's weights.
 
-Becuase of the complications inherit in working with OpenAi and licencing GPT-3, we have instead chosen to use the open-source project GPT-J \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. Compared to GPT-3-Davinci's 175 billion network parameters, GPT-J's 6 billion parameters seems small, however it has proved itself to be capable enough to outperform GPT-3 in some tasks such as code generation \cite{forefront}. Therefore, we believe that GPT-J will be sufficient to explore the viability of our novel approach to trading.
+Because of the complications inherit in working with OpenAi and licensing GPT-3, we have instead chosen to use the open-source project GPT-J \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. Compared to GPT-3-Davinci's 175 billion network parameters, GPT-J's 6 billion parameters seems small, however it has proved itself to be capable enough to outperform GPT-3 in some tasks such as code generation \cite{forefront}. Therefore, we believe that GPT-J will be sufficient to explore the viability of our novel approach to trading.
 
 \subsection{Intent}
 We propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
 
-We will first implement a trading algorithm based on GPT-J. Then we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Optimizing our algorithm will involve multiple iterations of fine-tune network training, prompt engineering, and accuracy analysis. Finally, we will conduct a profitability analysis of our algorithm using backtesting and live data.
+We will first implement a trading algorithm based on GPT-J. Then we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Optimizing our algorithm will involve multiple iterations of fine-tune network training, prompt engineering, and accuracy analysis. Finally, we will conduct a profitability analysis of our algorithm using back-testing and live data.
 
 \subsection{Problem Statement}
 In summary, as algorithmic traders seek to employ increasingly competitive and complex trading algorithms, we intend to evaluate the viability of using GPT language models to drive trading decisions. To achieve this goal we must first implement a trading algorithm based on GPT-J, then evaluate the accuracy of the algorithm's predictions, and finally evaluate the real-world profitability of the algorithm.
 
 \section{Related Works}
+\subsection{Previous Methods}
 Many neural network structures and methods have been used to create trading algorithms. Some types include: 
 \begin{itemize}
 	\item Recurrent neural networks (RNNs) \& Long short-term memory (LSTMs) \cite{Chen2017}\cite{Mehta2021}.
@@ -77,11 +78,13 @@ Many neural network structures and methods have been used to create trading algo
 	\item Transformer networks \cite{Schmitz2020}.
 \end{itemize}
 
-Most relevant to our work are methods that incorporate sentiment analysis of news sources. Mehta et al. (2021) evaluated a sentiment analysis methods and found that LSTMs could properly classify news tweets as indicative of positive or negative price movement with an accuracy of 92\% correct \cite{Mehta2021}. Nan \& Zaiane (2020) found that adding sentiment analysis to a Deep-Q learning algorithm could improve the Sharpe ratio of the agent by a factor greater than 2 in their test cases. \cite{Nan2020}.
+Most relevant to our work are methods that incorporate sentiment analysis of news sources. \cite{Mehta2021} evaluated sentiment analysis methods and found that LSTMs could correctly classify news tweets as indicative of positive or negative price movement with an accuracy of 92\%. \cite{Nan2020} found that adding sentiment analysis to a Deep-Q learning algorithm could improve the Sharpe Ratio (a measure of profit as compared to risk) of the agent by a factor greater than 2 in their test cases.
 
-By our estimation, the vast majority of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippets because of the memory limitations of RNN sentiment classifiers. With the introduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or Wang \& Komatsuzaki's GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Our method will encode the current world state in a large text-input which combines sentiment, real-world facts, and stock price data into a single input. We believe that this new network can be trained to learn to trade like a human.
+\subsection{Relevance \& Novelty}
+By our estimation, the vast majority of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippets because of the memory limitations of RNN sentiment classifiers. With the introduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or Wang \& Komatsuzaki's GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Readily available implementations of GPT-J allow for inputs with up to 2048 input tokens or words. Our method will encode the current world state in a large text-input which combines sentiment, real-world facts, and stock price data into a single input. We believe that combining rich input information with the network's pre-existing understanding of the world, the network will be able to produce significantly better trading signals than previous methods.
 
 \section{Execution Plan}
+To guide our execution, we have outlined the goals, requirements, steps, and processes we intend to implement. 
 \subsection{Requirements \& Goals}
 \subsubsection{Functional requirements (user stories)}
 \begin{itemize}
@@ -105,7 +108,7 @@ Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is a
 	      	\item Appending a universe current stock prices to the beginning of the input.
 	      	\item Appending multiple news stories from the past days and weeks at the beginning of the input.
 	      \end{enumerate}
-	\item[•] We will deploy the best model from my previous evaluations and test it on live stock market data. I will compare the model's performance against market indices like the S\&P 500. 
+	\item[•] We will deploy the best model from my previous evaluations and test it on live stock market data. We will compare the model's performance against market indices like the S\&P 500. 
 \end{enumerate}
 
 \begin{figure}[ht]
@@ -142,6 +145,7 @@ Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is a
 	\caption{Execution Flow}
 	\label{fig:executionFlow}
 \end{figure}
+
 \subsection{Dataset Gathering}
 \subsubsection{Stock Price Data}
 We plan to use the publicly available Yahoo Finance API \cite{yahoofinanceapi} to gather general technical information about a given ticker symbol. 
@@ -184,20 +188,31 @@ To measure the correlation between the release of a media item such as an SEC fi
 \begin{equation}
 	AR_{i,t}=R_{i,t}-(\alpha_i+\beta_i R_{m,t})
 \end{equation}
-for firm $i$ at time $t$ where $\alpha_i$ and $\beta_i$ represent the relationship between a given stock and it's reference index. And where $R_{m,t}$ is the return of the actual reference market.
+for firm $i$ at time $t$ where $\alpha_i$ and $\beta_i$ represent the relationship between a given stock and it's reference market. And where $R_{m,t}$ is the return of the actual reference market. This method uses the historical relationship of a stock to it's reference market to estimate normal returns. Abnormal returns are therefore the difference between the actual return of the stock and the normal return of the stock. 
 
-We will then take large sample of media release events of the same type and calculate the average abnormal return as follows:
+We can then take large sample of media release events of the same type and calculate the average abnormal return as follows:
 \begin{equation}
 	AAR= \frac{1}{N} \sum\limits_{i=1}^{N}AR_{i,t}
 \end{equation}
 
-Finally, we measure the total impact of the event over a given period of time by using cumulative abnormal return:
+Finally, we can measure the total impact of the event over a given period of time by using cumulative abnormal return:
 \begin{equation}
 	CAR(t_1,t_2)=\sum\limits_{t=t_1}^{t_2} AR_{i,t} 
 \end{equation}
 where $t_1$ and $t_2$ are the start and end dates of the event window.
+
+Because we are limited in the granularity of data we have access to and can easily process, our research will focus on day-by-day events, returns, and correlations.
+
 \subsubsection{GPT-J Model prediction accuracy}
-To evaluate the accuracy of our model given different input data, we will use two metrics. First is a simple ratio of well-formed, parse-able outputs to malformed outputs. This first metric we refer to as format-correctness. The second metric is a simple ratio of the actual stock price to the predicted stock price. This second metric we refer to as price-accuracy.
+To evaluate the accuracy of our model given different input data, we will use two metrics. First is a simple ratio of well-formed, parseable outputs to malformed outputs. This first metric we refer to as format-correctness. 
+\begin{equation}
+	F_c=\frac{N_{parseable}}{N_{malformed}}
+\end{equation}
+The second metric is a simple ratio of the actual stock price to the predicted stock price. This second metric we refer to as price-accuracy.
+\begin{equation}
+	P_a=\frac{P_{actual}}{P_{predicted}}
+\end{equation}
+We will use the price accuracy metric as our loss-function in fine-tune training of GPT-J. The format-correctness metric will be used to evaluate the reliability and robustness of our prompt. We may experiment with using the format-correctness metric as a weighted portion of our loss function.
 \section{Implementation}
 \section{Conclusion}
 The conclusion goes here.
