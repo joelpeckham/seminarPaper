@@ -12,7 +12,6 @@
 
 
 \begin{document}
-
 \begin{titlepage}
 	\centering
 	\includegraphics[width=0.2\textwidth]{logoBlackV.eps}\par
@@ -48,12 +47,16 @@
 
 \section{Introduction}
 \subsection{Background}
-Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The next generation of trading algorithms use neural networks to improve prediction accuracy. However, current opinion states neural networks can only increase efficiency by about 10\% and that neural networks are not capable of inventing winning trading ideas \cite{Vonko2021}. We theorize that neural networks are capable of much more. By scaling the number of network parameters into the billions, training the network on a massive dataset which captures the complexities of human behavior, and then making inferences from current  and by feeding the network with current news and opinions we believe that neural networks can model the world accurately enough to discover winning, novel trade ideas. Thankfully, the creators of GPT-J have already created such a neural network \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. 
+Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The current generation of trading algorithms now use neural networks to improve prediction accuracy. However, some believe neural networks are incapabale of inventing novel trading ideas and therefore can only increase trading efficiency by ~10\% \cite{Vonko2021}. On the other hand, we propose that recent increases in the scale of neural networks can unlock the ability to algorithmically invent winning trades. 
+
+Specifically, we propose that large-scale natural language processing models such as OpenAi's GPT-3 \cite{Brown2020} have captured a large enough undertanding of the world, that given the proper input, they can generate novel, winning trades. Transformer networks of this type are designed to both ingest and output text. We propose that by properly enginnering our input text prompts, we can leverage the massive amount of real-world knowledge encoded in the network's weights.
+
+Becuase of the complications inherit in working with OpenAi and licencing GPT-3, we have instead chosen to use the open-source project GPT-J \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. Compared to GPT-3-Davinci's 175 billion network parameters, GPT-J's 6 billion parameters seems small, however it has proved itself to be capable enough to outperform GPT-3 in some tasks such as code generation \cite{forefront}. Therefore, we believe that GPT-J will be sufficient to explore the viability of our novel approach to trading.
 
 \subsection{Intent}
 We propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
 
-In this paper we will first implement a trading algorithm based on GPT-J, then we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Finally, we will evaluate the real-world profitability of the algorithm using both back-testing and live market data. 
+We will first implement a trading algorithm based on GPT-J. Then we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Optimizing our algorithm will involve multiple iterations of fine-tune network training, prompt engineering, and accuracy analysis. Finally, we will conduct a profitability analysis of our algorithm using backtesting and live data.
 
 \subsection{Problem Statement}
 In summary, as algorithmic traders seek to employ increasingly competitive and complex trading algorithms, we intend to evaluate the viability of using GPT language models to drive trading decisions. To achieve this goal we must first implement a trading algorithm based on GPT-J, then evaluate the accuracy of the algorithm's predictions, and finally evaluate the real-world profitability of the algorithm.
