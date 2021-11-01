@@ -9,6 +9,18 @@
 \usepackage{breakurl}
 \usepackage[breaklinks]{hyperref}
 \usepackage{lipsum}  
+\usepackage{listings}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines
+}
 
 
 \begin{document}
@@ -16,9 +28,9 @@
 	\centering
 	\includegraphics[width=0.2\textwidth]{logoBlackV.eps}\par
 	\vspace{1.5cm}
-	{\scshape\LARGE Southern Adventist University \par}
+	{\LARGE Southern Adventist University \par}
 	\vfill
-	{\scshape\Large Senior Project\par}
+	{\Large Senior Project\par}
 	\vspace{1cm}
 	{\huge\bfseries Algorithmically Trading like a Human with GPT-J\par}
 	\vspace{1cm}
@@ -217,11 +229,32 @@ We will use the price accuracy metric as our loss-function in fine-tune training
 \subsection{Data Gathering}
 We used a Digital Ocean droplet for data gathering and processing. This allowed us to dedicate a machine for long-running webscraping tasks and transfer data with a fast and reliable connection. 
 \subsubsection{News Web Scraping}
-Using the free tier of Mediastack's news API, we are able to search a corpus of historical news articles, getting metadata about the articles and the URL pointing to their content. Critically, the Mediastack API provides exact publication times so each article can properly be associated with a stock price movement event. We can then use the URL to download the content of the article. Extracting main article text from the HTML can be done with the BeautifulSoup python library on a source by source basis. 
-
+Using the freely available New York Times Archive API {Citation Needed}. We downloaded the associated metadata for each New York Times article from January 2006 through October 2022. This subset of the New York Times archive consists of 1,446,289 articles. We then filtered the articles based on the keywords associated with the article, to get articles relevant to a company in our list of top 50 U.S. companies. Our resulting dataset contains 23428 unique articles from the Times. 
+\onecolumn
+\begin{lstlisting}[language=json,firstnumber=1]
+{"headline": "Banks Tried to Kill Crypto and Failed. Now They\u2019re Embracing It (Slowly).",
+"pub_date": "2021-11-01T07:00:09+0000",
+"web_url": "https://www.nytimes.com/2021/11/01/business/banks-crypto-bitcoin.html",
+"snippet": "Digital payments technology is forcing the financial system to evolve. Banks feel their power waning and want to regain control.",
+"lead_paragraph": "In 2014, as regulators in New York were exploring ways to control Bitcoin, executives at Wall Street\u2019s biggest banks fretted that regulating cryptocurrencies would also legitimize them \u2014 and that could threaten the finance industry. So they tried to sow doubt.",
+"companies": [
+	"Bank of America Corporation",
+	"JPMorgan Chase & Company"
+],
+"news_desk": "Business",
+"all_keywords": [
+	"subject Banking and Financial Institutions",
+	"subject Bitcoin (Currency)",
+	"organizations Bank of America Corporation",
+	"organizations Federal Reserve System",
+	"organizations JPMorgan Chase & Company",
+	"glocations New York City"
+]}
+\end{lstlisting}
+\twocolumn
 \section{Results}
 \section{Conclusion}
-The conclusion goes here.
+
 
 \section*{Acknowledgment}
 The authors would like to thank... 
