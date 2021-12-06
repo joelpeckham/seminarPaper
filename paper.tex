@@ -61,11 +61,10 @@
 \subsection{Background}
 Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The current generation of trading algorithms now use neural networks to improve prediction accuracy. However, some believe neural networks are incapable of inventing novel trading ideas and therefore can only increase trading efficiency by approximately 10\% \cite{Vonko2021}. On the other hand, we propose that recent increases in the scale of neural networks can unlock the ability to algorithmically invent winning trades. 
 
-Specifically, we propose that large-scale natural language processing models such as OpenAi's GPT-3 \cite{Brown2020} have captured a large enough understanding of the world, that given the proper input, they can generate novel, winning trades. Transformer networks of this type are designed to both ingest and output text. We propose that by properly engineering our input text prompts, we can leverage the massive amount of real-world knowledge encoded in the network's weights.
+Specifically, we propose that large-scale natural language processing models such as OpenAi's GPT-3 \cite{Brown2020} have captured a large enough understanding of the world, that given the proper input, they can generate novel, winning trades. Transformer networks of this type are designed to both ingest and output text. Taking into account the impressive knowledge displayed by GPT-3 and others in text-completion tasks, we propose that with adequate fine-tuning and well engineered prompts, such networks can learn to trade like a human by reading the news, social media, and other sources such as SEC filings. In theory, by properly engineering our input text prompts, we can leverage the massive amount of real-world knowledge encoded in the network's weights.
 
 Because of the complications inherit in working with OpenAi and licensing GPT-3, we have instead chosen to use the open-source project GPT-J \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. Compared to GPT-3-Davinci's 175 billion network parameters, GPT-J's 6 billion parameters seems small, however it has proved itself to be capable enough to outperform GPT-3 in some tasks such as code generation \cite{forefront}. Therefore, we believe that GPT-J will be sufficient to explore the viability of our novel approach to trading.
 
-Taking into account the impressive knowledge displayed by GPT-3 and others in text-completion tasks, we propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
 
 % \subsection{Intent}
 % We will first implement a trading algorithm based on GPT-J. Then, we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Optimizing our algorithm will involve multiple iterations of fine-tune network training, prompt engineering, and accuracy analysis. Finally, we will conduct a profitability analysis of our algorithm using back-testing and live data.
@@ -95,14 +94,14 @@ Most relevant to our work are methods that incorporate sentiment analysis of new
 \subsection{Relevance \& Novelty}
 By our estimation, the vast majority of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippets because of the memory limitations of RNN sentiment classifiers. With the introduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or Wang \& Komatsuzaki's GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Readily available implementations of GPT-J allow for inputs with up to 2048 input tokens or words. Our method will encode the current world state in a large text-input which combines sentiment, real-world facts, and stock price data into a single input. We believe that combining rich input information with the network's pre-existing understanding of the world, the network will be able to produce significantly better trading signals than previous methods.
 
-\section{Execution Plan}
-To guide our execution, we have outlined the goals, requirements, steps, and processes we intend to implement. 
+\section{Long-term Plan}
+To guide our execution, we have outlined the goals, requirements, steps, and processes we intend to implement in the long-term. This road-map will guide the creation and evaluation of our small-scale test dataset.
 \subsection{Requirements \& Goals}
 \subsubsection{Functional requirements (user stories)}
 \begin{itemize}
 	\item As finance researchers, we want to quantify the ability of news releases, SEC filings, and social media posts to move stock prices.
 	\item As AI researchers, we want to evaluate the viability of using GPT-J as a stock movement indicator so that we can understand the power of GPT-J to understand complex real-world interactions.
-	\item As algorithmic traders, we want to evaluate the viability of using GPT-J as a stock movement indicator so that I can make more-informed trading decisions.
+	\item As algorithmic traders, we want to evaluate the viability of using GPT-J as a stock movement indicator so that we can make more-informed trading decisions.
 \end{itemize}
 \subsubsection{Non-functional requirements}
 Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is as follows:
@@ -158,14 +157,16 @@ Our overall flow of execution as outlined in figure \ref{fig:executionFlow} is a
 	\label{fig:executionFlow}
 \end{figure}
 
-\subsection{Dataset Gathering}
+\subsection{Dataset Options}
+This section outlines the available options for dataset creation. Although, we do not currently have the resources to create a dataset for each of these options, we have left them here as an aid for future work.
+
 \subsubsection{Stock Price Data}
-We plan to use the publicly available Yahoo Finance API \cite{yahoofinanceapi} to gather general technical information about a given ticker symbol. 
-For historical price data, we will use the Alpaca Data API v2 \cite{alpacadataapi}. This API gives access to 5 years of historical data for training and live price data for live model inference testing. 
+Stock price data is publicly available Yahoo Finance API \cite{yahoofinanceapi}. This source can be used to gather general technical information about a given ticker symbol. 
+For historical price data, the Alpaca Data API v2 \cite{alpacadataapi} can be used. This API gives access to 5 years of historical data for training and live price data for live model inference testing. 
 \subsubsection{SEC Filings}
 The SEC provides public access to their EDGAR database of public company filings \cite{Sec.gov_2021}. The EDGAR API can be used to download the most recent SEC filings for a given company for live trading. Or for training, bulk datasets are available for download. The release dates of each filing can then be labeled with the stock prices of the company before and after the filing.
 \subsubsection{News}
-We will scrape financial news websites for a large set of historical articles. We intend to create a backlog of articles from the sources listed in Table \ref{table:newsSources}.
+Theoretically, a huge amout of financial news can be scraped from the following sources, although developing web-scrapers for each source is a massive time commitment. However, a complete dataset would include a backlog of articles from the sources listed in Table \ref{table:newsSources}.
 \begin{table}[ht]
     \caption{News Sources}
     \centering
@@ -192,10 +193,11 @@ We will scrape financial news websites for a large set of historical articles. W
 \end{table}
 
 \subsubsection{Social Media}
-We will focus on Twitter for our social media data. The Twitter API \cite{twitterapi} will allow us to gather timely opinions on a given ticker symbol. After filtering for a specific time period, tweets can be added to our training dataset.
+Twitter is the best option for social media data because the Twitter API \cite{twitterapi} will allow us to gather timely opinions on a given ticker symbol. After filtering for a specific time period, tweets can be added to our training dataset.
 
-\subsection{Testing \& Evaluation Methods}
-\subsubsection{Media Release Correlations}
+\subsection{Testing \& Evaluation Plan}
+
+\subsubsection{Media Release Correlations} \label{math}
 To measure the correlation between the release of a media item such as an SEC filing or news story, we will use the standard event study method as detailed in \cite{Neuhierl2010}. This method uses abnormal returns in a given period to calculate the effect of a certain event on a stock's price. Abnormal return for a given day is defined as 
 \begin{equation}
 	AR_{i,t}=R_{i,t}-(\alpha_i+\beta_i R_{m,t})
@@ -225,10 +227,9 @@ The second metric is a simple ratio of the actual stock price to the predicted s
 	P_a=\left|\frac{P_{actual}}{P_{predicted}}\right|
 \end{equation}
 We will use the price accuracy metric as our loss-function in fine-tune training of GPT-J. The format-correctness metric will be used to evaluate the reliability and robustness of our prompt. We may experiment with using the format-correctness metric as a weighted portion of our loss function.
-\section{Implementation}
-\subsection{Data Gathering}
-We used a Digital Ocean droplet for data gathering and processing. This allowed us to dedicate a machine for long-running webscraping tasks and transfer data with a fast and reliable connection. 
-\subsubsection{News Web Scraping}
+\section{Small-Scale Implementation}
+\subsection{Data Gathering} 
+\subsubsection{News Data}
 Using the freely available New York Times Archive API {Citation Needed}. We downloaded the associated metadata for each New York Times article from January 2006 through October 2022. This subset of the New York Times archive consists of 1,446,289 articles. We then filtered the articles based on the keywords associated with the article, to get articles relevant to a company in our list of top 50 U.S. companies. Our resulting dataset contains 23428 unique articles from the Times. 
 
 \begin{table}[ht]
@@ -295,34 +296,38 @@ Using the freely available New York Times Archive API {Citation Needed}. We down
 The next step was to collect a dataset of historical stock prices that can be correleated with the news articles at our disposal. Using the Alpaca Data API v2 \cite{alpacadataapi}, we downloaded the historical stock prices for our top 50 U.S. companies. 
 \subsection{Data Preprocessing}
 Using the Alpaca API, we were limited to 5 years of past data. This means we must filter our news dataset to start in November of 2016. We were then able to attach stock data with 8,053 news articles over 1,222 weeks \ref{fig:eventsPerYear}. The dataset was naturally skewed to a certain few companies like Facebook, Netflix, and Apple which account for over 45\% of the news articles in our event dataset dispite them only being 3/50 companies or 6\% of the companies inlcuded in our news search \ref{fig:eventsPerCompany}. 
-\subsection{Inference}
-Inference was expensive. We had to searh for lots of different inference solutions in the cloud. When we did find something we were limited to 4,000 events by cost. We were not able to do fine-tune training.
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.45\textwidth]{eventsPerYear.png}
-	\caption{Number of events per company}
+	\caption{Number of Events/Year}
 	\label{fig:eventsPerYear}
 \end{figure}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.45\textwidth]{eventsPerCompany.png}
-	\caption{Number of events per company}
+	\caption{Number of Events/Company (Top 10)}
 	\label{fig:eventsPerCompany}
 \end{figure}
 \section{Results}
 \subsection{Event Study}
 \subsubsection{Standard Methodology}
-Our event study had the goal of invetsigating if the news releases in our datset were correlated with abnormal returns in stock price. We use the event study methodology as described above, but could not produce signigicant results on a dataset of our size. One possible reason for this is that the number of events is relativevly small.
+Our event study had the goal of invetsigating if the news releases in our datset were correlated with abnormal returns in stock price. We use the event study methodology as described above in section \ref{math} for each stock in our dataset. Figure \ref{fig:expected} shows the expected return of Facebook compared to the its actual retrun and reference index. Averaging over all the stocks in our dataset, the event study methodology showed that the events in our dataset were not correlated with abnormal returns in stock price.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.45\textwidth]{FBExpectedValues.png}
+	\caption{Facebook: Actual vs. Expected Return}
+	\label{fig:expected}
+\end{figure} 
 \subsubsection{Simple Correlation Test}
 To confirm our suspicions that our event data in fact had no correlation with price movements, we ran a simple correlation test on a frequecy of news releases for a given company and the absolute acceleration of stock price. Figure \ref{fig:acceleartion} gives an example of this data on Microsoft. The average correlation coefficient over all stocks is 0.035, which means that there is no significant correlation between the news releases and the stock price in our dataset.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.45\textwidth]{MSFTevents.png}
-	\caption{Acceleration of MSFT vs. News Releases}
+	\caption{Abs. Acceleration of MSFT vs. News Releases}
 	\label{fig:acceleartion}
 \end{figure}
 \subsection{Inference}
+Running inference on models of this scale requires large amounts of parallel compute. With the limited resources of this study, renting Google TPU time to set up our own training and inference environment was intractable. However, online services such as HuggingFace, provide APIs to interface with pre-trained models. However, even this service is expensive, so we were unable to perform fine-tune testing. We were also limited to only performing inference on a small subset of our dataset: about 4,000 events.
 \subsubsection{Format-Correctness Metric}
 Suprisingly, GPT-J was always able to retrun a parseable output given our test prompt. \textbf{Give example prompt.} We believe that adding a ``\$'' to the end of the prompt made GPT-J more likely to return a parseable output.
 \subsubsection{Price-Accuracy Metric}
