@@ -67,10 +67,6 @@ Specifically, we propose that large-scale natural language processing models suc
 
 Because of the complications inherit in working with OpenAi and licensing GPT-3, we have instead chosen to use the open-source project GPT-J \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. Compared to GPT-3-Davinci's 175 billion network parameters, GPT-J's 6 billion parameters seems small, however it has proved itself to be capable enough to outperform GPT-3 in some tasks such as code generation \cite{forefront}. Therefore, we believe that GPT-J will be sufficient to explore the viability of our novel approach to trading.
 
-
-% \subsection{Intent}
-% We will first implement a trading algorithm based on GPT-J. Then, we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Optimizing our algorithm will involve multiple iterations of fine-tune network training, prompt engineering, and accuracy analysis. Finally, we will conduct a profitability analysis of our algorithm using back-testing and live data.
-
 \subsection{Problem Statement}
 As algorithmic traders seek to employ increasingly competitive and complex trading algorithms, we propose to study the viability of using GPT-J as a natural language based stock predection algorithm. This work will provide a foundation for developing and testing such an algorithm by building and evauluating a small-scale test dataset. 
 
@@ -232,7 +228,7 @@ We will use the price accuracy metric as our loss-function in fine-tune training
 \section{Small-Scale Implementation}
 \subsection{Data Gathering} 
 \subsubsection{News Data}
-Using the freely available New York Times Archive API {Citation Needed}. We downloaded the associated metadata for each New York Times article from January 2006 through October 2022. This subset of the New York Times archive consists of 1,446,289 articles. We then filtered the articles based on the keywords associated with the article, to get articles relevant to a company in our list of top 50 U.S. companies. Our resulting dataset contains 23428 unique articles from the Times. 
+Using the freely available New York Times Archive API {Citation Needed}. We downloaded the associated metadata for each New York Times article from January 2006 through October 2022. This subset of the New York Times archive consists of 1,446,289 articles. We then filtered the articles based on the keywords associated with the article, to get articles relevant to a company in our list of top 50 U.S. companies. Our resulting dataset contains 23,428 unique articles from the Times. 
 
 \begin{table}[ht]
     \caption{Stock Sources}
@@ -321,7 +317,7 @@ Our event study had the goal of invetsigating if the news releases in our datset
 	\label{fig:expected}
 \end{figure} 
 \subsubsection{Simple Correlation Test}
-To confirm our suspicions that our event data in fact had no correlation with price movements, we ran a simple correlation test on a frequecy of news releases for a given company and the absolute acceleration of stock price. Figure \ref{fig:acceleartion} gives an example of this data on Microsoft. The average correlation coefficient over all stocks is 0.035, which means that there is no significant correlation between the news releases and the stock price in our dataset.
+To confirm our suspicions that our event data in fact had no correlation with price movements, we ran a simple correlation test on the frequecy of news releases for a given company vs. the absolute acceleration of its stock price. Figure \ref{fig:acceleartion} gives an example of this data on Microsoft. The average correlation coefficient over all stocks is 0.035, which means that there is no significant correlation between the news releases and the stock price in our dataset.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.45\textwidth]{MSFTevents.png}
@@ -329,7 +325,7 @@ To confirm our suspicions that our event data in fact had no correlation with pr
 	\label{fig:acceleartion}
 \end{figure}
 \subsection{Inference}
-Running inference on models of this scale requires large amounts of parallel compute. With the limited resources of this study, renting Google TPU time to set up our own training and inference environment was intractable. However, online services such as HuggingFace, provide APIs to interface with pre-trained models. However, even this service is expensive, so we were unable to perform fine-tune testing. We were also limited to only performing inference on a small subset of our dataset: about 4,000 events.
+Running inference on models of this scale requires large amounts of parallel compute. With the limited resources of this study, renting Google TPU time to set up our own training and inference environment was intractable. Instead, we used an cloud service called HuggingFace. HuggingFace provides APIs to interface with pre-trained neural models. However, even this service is expensive, so we were unable to perform fine-tune testing. We were also limited to only performing inference on a small subset of our dataset: about 4,000 events.
 \subsubsection{Format-Correctness Metric}
 Suprisingly, GPT-J was always able to retrun a parseable output given our test prompt. \textbf{Give example prompt.} We believe that adding a ``\$'' to the end of the prompt made GPT-J more likely to return a parseable output.
 \subsubsection{Price-Accuracy Metric}
