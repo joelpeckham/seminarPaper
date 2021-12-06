@@ -10,6 +10,11 @@
 \usepackage[breaklinks]{hyperref}
 \usepackage{lipsum}  
 \usepackage{listings}
+\usepackage{xcolor}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{fafafa}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
 
 \lstdefinelanguage{json}{
     basicstyle=\normalfont\ttfamily,
@@ -19,7 +24,25 @@
     numbersep=8pt,
     showstringspaces=false,
     breaklines=true,
-    frame=lines
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+    %  *{0}{{{\color{numb}0}}}{1}
+    %   {1}{{{\color{numb}1}}}{1}
+    %   {2}{{{\color{numb}2}}}{1}
+    %   {3}{{{\color{numb}3}}}{1}
+    %   {4}{{{\color{numb}4}}}{1}
+    %   {5}{{{\color{numb}5}}}{1}
+    %   {6}{{{\color{numb}6}}}{1}
+    %   {7}{{{\color{numb}7}}}{1}
+    %   {8}{{{\color{numb}8}}}{1}
+    %   {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
 }
 
 
@@ -186,6 +209,8 @@ Theoretically, a huge amout of financial news can be scraped from the following 
         \hline
         Wall Street Journal & \href{https://www.wsj.com/}{www.wsj.com/} \\
         \hline
+		New York Times & \href{https://www.nytimes.com/}{www.nytimes.com/} \\
+        \hline
     \end{tabular}
     \label{table:newsSources}
 \end{table}
@@ -327,7 +352,7 @@ To confirm our suspicions that our event data did not correlate with price movem
 \subsection{Inference}
 Running inference on models of this scale requires large amounts of parallel compute. With the limited resources of this study, renting Google TPU time to set up our own training and inference environment was intractable. Instead, we used a cloud service called HuggingFace. HuggingFace provides APIs to interface with pre-trained neural models. However, even this service is expensive, so we were unable to perform fine-tune testing. We were also limited to only performing inference on a small subset of our dataset: about 4,000 events.
 \subsubsection{Format-Correctness Metric}
-Surprisingly, GPT-J was always able to return a parseable output given our test prompt. \textbf{Give example prompt.} We believe that adding a ``\$'' to the end of the prompt made GPT-J more likely to return a parseable output.
+Surprisingly, GPT-J was always able to return a parseable output given our test prompt. We have included a sample prompt and response in Appendix \ref{Examples}. We believe that adding a ``\$'' to the end of the prompt made GPT-J more likely to return a parseable output.
 \subsubsection{Price-Accuracy Metric}
 Our limited inference method was unable to predict stock prices with any accuracy. In our dataset, a simple linear regression over the last week of stock prices was able to generate a prediction of the next day's price 52\% of the time. By comparison, the GPT-J model was correct 47.5\% of the time. Both of these numbers are not significantly better from a random guess. 
 \section{Conclusion}
@@ -341,11 +366,19 @@ Future work to improve the significance of our results will include:
     \item Increasing the size of our inference dataset.
 \end{itemize}
 
-% \section*{Acknowledgment}
-% The authors would like to thank... 
-
-
 \bibliographystyle{IEEEtran}
 \bibliography{./paper.bib}
-
+\onecolumn
+\appendix
+\subsection{Example Inference Promt and Response}
+\label{Examples}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	"q": "On March 01, 2018, the New York times published the following article regarding Walmart(Ticker: WMT) from their Business news desk. Headline: Walmart to Raise Age to Buy Guns and Ammunition to 21. Lead paragraph: Walmart, the largest retailer in the United States, said Wednesday evening that it would stop selling guns and ammunition to anyone under 21 years of age and remove from its stores all toys and airsoft rifles that resemble assault-style weapons. When the news of this was released, past stock prices were: $92.77, $92.89, $93.12, $91.52, $90.01, $89.08. After this news was announced, the following day's price was: $",
+	"a": "88.77",
+	"r": [
+		{"generated_text": "89"}
+	]
+}
+\end{lstlisting}
 \end{document}
