@@ -44,7 +44,7 @@
 	\vfill
 	\begin{abstract}
 		% \lipsum[1]
-		We explore the viability of using GPT-J, a 6 billion parameter natural language processing model, as a stock market trading indicator. This novel approach leverages both GPT-J's ability to process large, data-rich inputs, and GPT-J's deep understanding of the world. We propose that with a sufficient understanding of language, an AI model can be used to predict the future value of a stock. We test this hypothesis using both statistical models and real-world back-tesing data. We hope to demonstrate that our model is able to predict the future value of a stock with a higher degree of accuracy than previous models.
+		We explore the viability of using GPT-J, a 6 billion parameter natural language processing model, as a stock market trading indicator. This novel approach leverages both GPT-J's ability to process large, data-rich inputs, and GPT-J's deep understanding of the world. We study the viability of using GPT-J as a natural language based stock predection algorithm by creating and evaulating a small scale test dataset. Our test dataset produced no significant results. 
 	\end{abstract}
 	
 	\vfill
@@ -59,21 +59,21 @@
 \twocolumn
 \section{Introduction}
 \subsection{Background}
-Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The current generation of trading algorithms now use neural networks to improve prediction accuracy. However, some believe neural networks are incapable of inventing novel trading ideas and therefore can only increase trading efficiency by ~10\% \cite{Vonko2021}. On the other hand, we propose that recent increases in the scale of neural networks can unlock the ability to algorithmically invent winning trades. 
+Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The current generation of trading algorithms now use neural networks to improve prediction accuracy. However, some believe neural networks are incapable of inventing novel trading ideas and therefore can only increase trading efficiency by approximately 10\% \cite{Vonko2021}. On the other hand, we propose that recent increases in the scale of neural networks can unlock the ability to algorithmically invent winning trades. 
 
 Specifically, we propose that large-scale natural language processing models such as OpenAi's GPT-3 \cite{Brown2020} have captured a large enough understanding of the world, that given the proper input, they can generate novel, winning trades. Transformer networks of this type are designed to both ingest and output text. We propose that by properly engineering our input text prompts, we can leverage the massive amount of real-world knowledge encoded in the network's weights.
 
 Because of the complications inherit in working with OpenAi and licensing GPT-3, we have instead chosen to use the open-source project GPT-J \cite{mesh-transformer-jax}. GPT-J is a transformer network \cite{Vaswani2017} that has been trained on an 825GiB language modeling data set called The Pile \cite{Gao2021}. Compared to GPT-3-Davinci's 175 billion network parameters, GPT-J's 6 billion parameters seems small, however it has proved itself to be capable enough to outperform GPT-3 in some tasks such as code generation \cite{forefront}. Therefore, we believe that GPT-J will be sufficient to explore the viability of our novel approach to trading.
 
-\subsection{Intent}
-We propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
+Taking into account the impressive knowledge displayed by GPT-3 and others in text-completion tasks, we propose that with adequate fine-tuning and well engineered prompts, GPT-J can learn to trade like a human by reading the news, social media, and other sources such as SEC filings.
 
-We will first implement a trading algorithm based on GPT-J. Then we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Optimizing our algorithm will involve multiple iterations of fine-tune network training, prompt engineering, and accuracy analysis. Finally, we will conduct a profitability analysis of our algorithm using back-testing and live data.
+% \subsection{Intent}
+% We will first implement a trading algorithm based on GPT-J. Then, we will evaluate the algorithm's prediction accuracy and compare it to the accuracy of similar algorithms. Optimizing our algorithm will involve multiple iterations of fine-tune network training, prompt engineering, and accuracy analysis. Finally, we will conduct a profitability analysis of our algorithm using back-testing and live data.
 
 \subsection{Problem Statement}
-In summary, as algorithmic traders seek to employ increasingly competitive and complex trading algorithms, we intend to evaluate the viability of using GPT language models to drive trading decisions. To achieve this goal we must first implement a trading algorithm based on GPT-J, then evaluate the accuracy of the algorithm's predictions, and finally evaluate the real-world profitability of the algorithm.
+As algorithmic traders seek to employ increasingly competitive and complex trading algorithms, we propose to study the viability of using GPT-J as a natural language based stock predection algorithm. This work will provide a foundation for developing and testing such an algorithm by building and evauluating a small-scale test dataset. 
 
-\section{Related Works}
+\section{Review of Literature}
 \subsection{Previous Methods}
 Many neural network structures and methods have been used to create trading algorithms. Some types include: 
 \begin{itemize}
@@ -90,7 +90,7 @@ Many neural network structures and methods have been used to create trading algo
 	\item Transformer networks \cite{Schmitz2020}.
 \end{itemize}
 
-Most relevant to our work are methods that incorporate sentiment analysis of news sources. \cite{Mehta2021} evaluated sentiment analysis methods and found that LSTMs could correctly classify news tweets as indicative of positive or negative price movement with an accuracy of 92\%. \cite{Nan2020} found that adding sentiment analysis to a Deep-Q learning algorithm could improve the Sharpe Ratio (a measure of profit as compared to risk) of the agent by a factor greater than 2 in their test cases.
+Most relevant to our work are methods that incorporate sentiment analysis of news sources. \cite{Mehta2021} evaluated sentiment analysis methods and found that LSTMs could correctly classify news tweets as indicative of positive or negative price movement 92\% of the time. \cite{Nan2020} found that adding sentiment analysis to a Deep-Q learning algorithm could improve the Sharpe Ratio (a measure of profit as compared to risk) of the agent by a factor greater than 2 in their test cases.
 
 \subsection{Relevance \& Novelty}
 By our estimation, the vast majority of previous works involving sentiment analysis used a pre-processing step to extract sentiment from the news, and then embedded those features into a time-series dataset. News sources were often limited to headlines, tweets and small snippets because of the memory limitations of RNN sentiment classifiers. With the introduction of large transformer networks \cite{Vaswani2017}, capable of processing large amounts of text like OpenAi's GPT-3 \cite{Brown2020} or Wang \& Komatsuzaki's GPT-J \cite{gpt-j}, we believe a new class of trading network can be created. Readily available implementations of GPT-J allow for inputs with up to 2048 input tokens or words. Our method will encode the current world state in a large text-input which combines sentiment, real-world facts, and stock price data into a single input. We believe that combining rich input information with the network's pre-existing understanding of the world, the network will be able to produce significantly better trading signals than previous methods.
@@ -222,7 +222,7 @@ To evaluate the accuracy of our model given different input data, we will use tw
 \end{equation}
 The second metric is a simple ratio of the actual stock price to the predicted stock price. This second metric we refer to as price-accuracy.
 \begin{equation}
-	P_a=\frac{P_{actual}}{P_{predicted}}
+	P_a=\left|\frac{P_{actual}}{P_{predicted}}\right|
 \end{equation}
 We will use the price accuracy metric as our loss-function in fine-tune training of GPT-J. The format-correctness metric will be used to evaluate the reliability and robustness of our prompt. We may experiment with using the format-correctness metric as a weighted portion of our loss function.
 \section{Implementation}
@@ -230,34 +230,116 @@ We will use the price accuracy metric as our loss-function in fine-tune training
 We used a Digital Ocean droplet for data gathering and processing. This allowed us to dedicate a machine for long-running webscraping tasks and transfer data with a fast and reliable connection. 
 \subsubsection{News Web Scraping}
 Using the freely available New York Times Archive API {Citation Needed}. We downloaded the associated metadata for each New York Times article from January 2006 through October 2022. This subset of the New York Times archive consists of 1,446,289 articles. We then filtered the articles based on the keywords associated with the article, to get articles relevant to a company in our list of top 50 U.S. companies. Our resulting dataset contains 23428 unique articles from the Times. 
-\onecolumn
-\begin{lstlisting}[language=json,firstnumber=1]
-{"headline": "Banks Tried to Kill Crypto and Failed. Now They\u2019re Embracing It (Slowly).",
-"pub_date": "2021-11-01T07:00:09+0000",
-"web_url": "https://www.nytimes.com/2021/11/01/business/banks-crypto-bitcoin.html",
-"snippet": "Digital payments technology is forcing the financial system to evolve. Banks feel their power waning and want to regain control.",
-"lead_paragraph": "In 2014, as regulators in New York were exploring ways to control Bitcoin, executives at Wall Street\u2019s biggest banks fretted that regulating cryptocurrencies would also legitimize them \u2014 and that could threaten the finance industry. So they tried to sow doubt.",
-"companies": [
-	"Bank of America Corporation",
-	"JPMorgan Chase & Company"
-],
-"news_desk": "Business",
-"all_keywords": [
-	"subject Banking and Financial Institutions",
-	"subject Bitcoin (Currency)",
-	"organizations Bank of America Corporation",
-	"organizations Federal Reserve System",
-	"organizations JPMorgan Chase & Company",
-	"glocations New York City"
-]}
-\end{lstlisting}
-\twocolumn
+
+\begin{table}[ht]
+    \caption{Stock Sources}
+    \centering
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Company} & \textbf{Ticker} \\
+	\hline
+	Apple & AAPL \\
+	Microsoft & MSFT \\
+	Alphabet & GOOG \\
+	Amazon & AMZN \\
+	Facebook & FB \\
+	Tesla & TSLA \\
+	Berkshire Hathaway & BRK.A \\
+	Nvidia & NVDA \\
+	JP Morgan & JPM \\
+	Visa & V \\
+	JOHNSON \& JOHNSON & JNJ \\
+	United Health & UNH \\
+	Walmart & WMT \\
+	Bank of America & BAC \\
+	Home Depot & HD \\
+	Mastercard & MA \\
+	PROCTER \& GAMBLE & PG \\
+	Disney & DIS \\
+	Adobe & ADBE \\
+	Salesforce & CRM \\
+	Netflix & NFLX \\
+	Exxon & XOM \\
+	Oracle & ORCL \\
+	Nike & NKE \\
+	Comcast & CMCSA \\
+	Coca-Cola & KO \\
+	Cisco & CSCO \\
+	Pfizer & PFE \\
+	Fisher Scientific & TMO \\
+	Accenture & ACN \\
+	Eli Lilly & LLY \\
+	Intel & INTC \\
+	Pepsi & PEP \\
+	Verizon & VZ \\
+	Danaher & DHR \\
+	Chevron & CVX \\
+	Abbott Laboratories & ABT \\
+	Broadcom & AVGO \\
+	Costco & COST \\
+	Merck & MRK \\
+	Wells Fargo & WFC \\
+	Abbvie & ABBV \\
+	Morgan Stanley & MS \\
+	AT\&T & T \\
+	McDonald's & MCD \\
+	Texas Instruments & TXN \\
+	Medtronic & MDT \\
+	UPS & UPS \\
+	Nextera & NEE \\
+	\hline
+\end{tabular}
+\label{table:stockSources}
+\end{table}
+\subsection{Stock Data Gathering}
+The next step was to collect a dataset of historical stock prices that can be correleated with the news articles at our disposal. Using the Alpaca Data API v2 \cite{alpacadataapi}, we downloaded the historical stock prices for our top 50 U.S. companies. 
+\subsection{Data Preprocessing}
+Using the Alpaca API, we were limited to 5 years of past data. This means we must filter our news dataset to start in November of 2016. We were then able to attach stock data with 8,053 news articles over 1,222 weeks \ref{fig:eventsPerYear}. The dataset was naturally skewed to a certain few companies like Facebook, Netflix, and Apple which account for over 45\% of the news articles in our event dataset dispite them only being 3/50 companies or 6\% of the companies inlcuded in our news search \ref{fig:eventsPerCompany}. 
+\subsection{Inference}
+Inference was expensive. We had to searh for lots of different inference solutions in the cloud. When we did find something we were limited to 4,000 events by cost. We were not able to do fine-tune training.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.45\textwidth]{eventsPerYear.png}
+	\caption{Number of events per company}
+	\label{fig:eventsPerYear}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.45\textwidth]{eventsPerCompany.png}
+	\caption{Number of events per company}
+	\label{fig:eventsPerCompany}
+\end{figure}
 \section{Results}
+\subsection{Event Study}
+\subsubsection{Standard Methodology}
+Our event study had the goal of invetsigating if the news releases in our datset were correlated with abnormal returns in stock price. We use the event study methodology as described above, but could not produce signigicant results on a dataset of our size. One possible reason for this is that the number of events is relativevly small.
+\subsubsection{Simple Correlation Test}
+To confirm our suspicions that our event data in fact had no correlation with price movements, we ran a simple correlation test on a frequecy of news releases for a given company and the absolute acceleration of stock price. Figure \ref{fig:acceleartion} gives an example of this data on Microsoft. The average correlation coefficient over all stocks is 0.035, which means that there is no significant correlation between the news releases and the stock price in our dataset.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.45\textwidth]{MSFTevents.png}
+	\caption{Acceleration of MSFT vs. News Releases}
+	\label{fig:acceleartion}
+\end{figure}
+\subsection{Inference}
+\subsubsection{Format-Correctness Metric}
+Suprisingly, GPT-J was always able to retrun a parseable output given our test prompt. \textbf{Give example prompt.} We believe that adding a ``\$'' to the end of the prompt made GPT-J more likely to return a parseable output.
+\subsubsection{Price-Accuracy Metric}
+Our limited inference method was unable to predict stock prices with any accuracy. In our dataset, a simple linear regression over the past week of stock prices was able to generate a prediction of the next day's price 52\% of the time. By comparision, the GPT-J model was correct 47.5\% of the time. Both of these numbers are not significantly better from a random guess. 
 \section{Conclusion}
+In conclusion, our study was unable to determine if language models like GPT-J contain any predective power in the stock market. Further study is needed to determine if natural-language-processing based models can be used to predict stock prices.
+\subsection{Future Work}
+Future work to improve the significane of our results will include:
+\begin{itemize}
+	\item Including more data sources (news, and other) to increase the number of events we can analyze.
+	\item Including more stocks in our analysis.
+	\item Varying prompt format.
+	\item Increasing the size of our inferernce dataset.
+\end{itemize}
 
-
-\section*{Acknowledgment}
-The authors would like to thank... 
+% \section*{Acknowledgment}
+% The authors would like to thank... 
 
 
 \bibliographystyle{IEEEtran}
