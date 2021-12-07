@@ -11,6 +11,7 @@
 \usepackage{lipsum}  
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{setspace}
 \colorlet{punct}{red!60!black}
 \definecolor{background}{HTML}{fafafa}
 \definecolor{delim}{RGB}{20,105,176}
@@ -82,6 +83,7 @@
 \twocolumn
 \thispagestyle{plain}
 \pagestyle{plain}
+\setstretch{1.07}
 \section{Introduction}
 \subsection{Background}
 Algorithmic trading has become the dominant way of buying and selling securities. In the U.S. stock market, algorithms account for 70-80\% of trading volume \cite{Samuelsson2021}. The current generation of trading algorithms now use neural networks to improve prediction accuracy. However, some believe neural networks are incapable of inventing novel trading ideas and therefore can only increase trading efficiency by approximately 10\% \cite{Vonko2021}. On the other hand, we propose that recent increases in the scale of neural networks can unlock the ability to algorithmically invent winning trades. 
@@ -253,9 +255,72 @@ We will use the price accuracy metric as our loss function in fine-tune training
 \section{Small-Scale Implementation}
 \subsection{Data Gathering} 
 \subsubsection{News Data}
-Using the freely available New York Times Archive API {Citation Needed}. We downloaded the associated metadata for each New York Times article from January 2006 through October 2022. This subset of the New York Times archive consists of 1,446,289 articles. We then filtered the articles based on the keywords associated with the article, to get articles relevant to a company in our list of top 50 U.S. companies. Our resulting dataset contains 23,428 unique articles from the Times. 
+Using the freely available New York Times Archive API {Citation Needed}. We downloaded the associated metadata for each New York Times article from January 2006 through October 2022. This subset of the New York Times archive consists of 1,446,289 articles. We then filtered the articles based on the keywords associated with the article, to get articles relevant to a company in our list of top 50 U.S. companies. Our resulting dataset contains 23,428 unique articles from the Times. We have included a table of the top 50 U.S. companies and their associated ticker symbols in Table \ref{table:stockSources} in Appendix \ref{top50}.
 
-\begin{table}[ht]
+
+\subsection{Stock Data Gathering}
+The next step was to collect a dataset of historical stock prices that can be correlated with the news articles at our disposal. Using the Alpaca Data API v2 \cite{alpacadataapi}, we downloaded the historical stock prices for our top 50 U.S. companies. 
+\subsection{Data Preprocessing}
+Using the Alpaca API, we were limited to 5 years of past data. This means we must filter our news dataset to start in November of 2016. We were then able to attach stock data with 8,053 news articles over 1,222 weeks [Figure \ref{fig:eventsPerYear}].
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{eventsPerYear.png}
+    \caption{Number of Events/Year}
+    \label{fig:eventsPerYear}
+\end{figure}
+
+The dataset was naturally skewed to a certain few companies like Facebook, Netflix, and Apple which account for over 45\% of the news articles in our event dataset despite them only being 3/50 companies or 6\% of the companies included in our news search [Figure \ref{fig:eventsPerCompany}]. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.45\textwidth]{eventsPerCompany.png}
+    \caption{Number of Events/Company (Top 10)}
+    \label{fig:eventsPerCompany}
+\end{figure}
+\section{Results}
+\subsection{Event Study}
+\subsubsection{Standard Methodology}
+Our event study had the goal of investigating if the news releases in our dataset were correlated with abnormal returns in stock price. We use the event study methodology as described above in section \ref{math} for each stock in our dataset. Figure \ref{fig:expected} shows the expected return of Facebook compared to its actual return and reference index. Averaging over all the stocks in our dataset, the event study methodology showed that the events in our dataset were not correlated with abnormal returns in stock price.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.45\textwidth]{FBExpectedValues.png}
+    \caption{Facebook: Actual vs. Expected Return}
+    \label{fig:expected}
+\end{figure} 
+\subsubsection{Simple Correlation Test}
+To confirm our suspicions that our event data did not correlate with price movements, we ran a simple correlation test on the frequency of news releases for a given company vs. the absolute acceleration of its stock price. Figure \ref{fig:acceleartion} gives an example of this data on Microsoft. The average correlation coefficient over all stocks is 0.035, which means that there is no significant correlation between the news releases and the stock price in our dataset.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.45\textwidth]{MSFTevents.png}
+    \caption{Abs. Acceleration of MSFT vs. News Releases}
+    \label{fig:acceleartion}
+\end{figure}
+\subsection{Inference}
+Running inference on models of this scale requires large amounts of parallel compute. With the limited resources of this study, renting Google TPU time to set up our own training and inference environment was intractable. Instead, we used a cloud service called HuggingFace. HuggingFace provides APIs to interface with pre-trained neural models. However, even this service is expensive, so we were unable to perform fine-tune testing. We were also limited to only performing inference on a small subset of our dataset: about 4,000 events.
+\subsubsection{Format-Correctness Metric}
+Surprisingly, GPT-J was always able to return a parseable output given our test prompt. We have included a sample prompt and response in Appendix \ref{Examples}. We believe that adding a ``\$'' to the end of the prompt made GPT-J more likely to return a parseable output.
+\subsubsection{Price-Accuracy Metric}
+Our limited inference method was unable to predict stock prices with any accuracy. In our dataset, a simple linear regression over the last week of stock prices was able to generate a prediction of the next day's price 52\% of the time. By comparison, the GPT-J model was correct 47.5\% of the time. Both of these numbers are not significantly better from a random guess. 
+\section{Conclusion}
+In conclusion, our study was unable to determine if language models like GPT-J contain any predictive power in the stock market. Further study is needed to determine if natural-language-processing-based models can be used to predict stock prices.
+\subsection{Future Work}
+Future work to improve the significance of our results will include:
+\begin{itemize}
+    \item Including more data sources (news, and other) to increase the number of events we can analyze.
+    \item Including more stocks in our analysis.
+    \item Varying prompt format.
+    \item Increasing the size of our inference dataset.
+\end{itemize}
+\begin{singlespace}
+	\setstretch{0.9}
+
+\bibliographystyle{IEEEtran}
+\bibliography{./paper.bib}
+
+\appendix
+\subsection{Top 50 Companies}
+\label{top50}
+\begin{table}[H]
     \caption{Stock Sources}
     \centering
 \begin{tabular}{|l|l|}
@@ -315,61 +380,8 @@ Using the freely available New York Times Archive API {Citation Needed}. We down
 \end{tabular}
 \label{table:stockSources}
 \end{table}
-\subsection{Stock Data Gathering}
-The next step was to collect a dataset of historical stock prices that can be correlated with the news articles at our disposal. Using the Alpaca Data API v2 \cite{alpacadataapi}, we downloaded the historical stock prices for our top 50 U.S. companies. 
-\subsection{Data Preprocessing}
-Using the Alpaca API, we were limited to 5 years of past data. This means we must filter our news dataset to start in November of 2016. We were then able to attach stock data with 8,053 news articles over 1,222 weeks \ref{fig:eventsPerYear}. The dataset was naturally skewed to a certain few companies like Facebook, Netflix, and Apple which account for over 45\% of the news articles in our event dataset despite them only being 3/50 companies or 6\% of the companies included in our news search \ref{fig:eventsPerCompany}. 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.45\textwidth]{eventsPerYear.png}
-    \caption{Number of Events/Year}
-    \label{fig:eventsPerYear}
-\end{figure}
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.45\textwidth]{eventsPerCompany.png}
-    \caption{Number of Events/Company (Top 10)}
-    \label{fig:eventsPerCompany}
-\end{figure}
-\section{Results}
-\subsection{Event Study}
-\subsubsection{Standard Methodology}
-Our event study had the goal of investigating if the news releases in our dataset were correlated with abnormal returns in stock price. We use the event study methodology as described above in section \ref{math} for each stock in our dataset. Figure \ref{fig:expected} shows the expected return of Facebook compared to its actual return and reference index. Averaging over all the stocks in our dataset, the event study methodology showed that the events in our dataset were not correlated with abnormal returns in stock price.
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.45\textwidth]{FBExpectedValues.png}
-    \caption{Facebook: Actual vs. Expected Return}
-    \label{fig:expected}
-\end{figure} 
-\subsubsection{Simple Correlation Test}
-To confirm our suspicions that our event data did not correlate with price movements, we ran a simple correlation test on the frequency of news releases for a given company vs. the absolute acceleration of its stock price. Figure \ref{fig:acceleartion} gives an example of this data on Microsoft. The average correlation coefficient over all stocks is 0.035, which means that there is no significant correlation between the news releases and the stock price in our dataset.
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.45\textwidth]{MSFTevents.png}
-    \caption{Abs. Acceleration of MSFT vs. News Releases}
-    \label{fig:acceleartion}
-\end{figure}
-\subsection{Inference}
-Running inference on models of this scale requires large amounts of parallel compute. With the limited resources of this study, renting Google TPU time to set up our own training and inference environment was intractable. Instead, we used a cloud service called HuggingFace. HuggingFace provides APIs to interface with pre-trained neural models. However, even this service is expensive, so we were unable to perform fine-tune testing. We were also limited to only performing inference on a small subset of our dataset: about 4,000 events.
-\subsubsection{Format-Correctness Metric}
-Surprisingly, GPT-J was always able to return a parseable output given our test prompt. We have included a sample prompt and response in Appendix \ref{Examples}. We believe that adding a ``\$'' to the end of the prompt made GPT-J more likely to return a parseable output.
-\subsubsection{Price-Accuracy Metric}
-Our limited inference method was unable to predict stock prices with any accuracy. In our dataset, a simple linear regression over the last week of stock prices was able to generate a prediction of the next day's price 52\% of the time. By comparison, the GPT-J model was correct 47.5\% of the time. Both of these numbers are not significantly better from a random guess. 
-\section{Conclusion}
-In conclusion, our study was unable to determine if language models like GPT-J contain any predictive power in the stock market. Further study is needed to determine if natural-language-processing-based models can be used to predict stock prices.
-\subsection{Future Work}
-Future work to improve the significance of our results will include:
-\begin{itemize}
-    \item Including more data sources (news, and other) to increase the number of events we can analyze.
-    \item Including more stocks in our analysis.
-    \item Varying prompt format.
-    \item Increasing the size of our inference dataset.
-\end{itemize}
 
-\bibliographystyle{IEEEtran}
-\bibliography{./paper.bib}
 \onecolumn
-\appendix
 \subsection{Example Inference Promt and Response}
 \label{Examples}
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -381,4 +393,6 @@ Future work to improve the significance of our results will include:
 	]
 }
 \end{lstlisting}
+
+\end{singlespace}
 \end{document}

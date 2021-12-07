@@ -13,8 +13,8 @@
 \contentsline {subsubsection}{\numberline {\mbox {III-B}2}SEC Filings}{3}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {\mbox {III-B}3}News}{3}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {\mbox {III-B}4}Social Media}{3}{subsubsection.3.2.4}%
-\contentsline {subsection}{\numberline {\mbox {III-C}}Testing \& Evaluation Plan}{3}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {\mbox {III-C}1}Media Release Correlations}{3}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {\mbox {III-C}}Testing \& Evaluation Plan}{4}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {\mbox {III-C}1}Media Release Correlations}{4}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {\mbox {III-C}2}GPT-J Model prediction accuracy}{4}{subsubsection.3.3.2}%
 \contentsline {section}{\numberline {IV}Small-Scale Implementation}{4}{section.4}%
 \contentsline {subsection}{\numberline {\mbox {IV-A}}Data Gathering}{4}{subsection.4.1}%
@@ -28,8 +28,9 @@
 \contentsline {subsection}{\numberline {\mbox {V-B}}Inference}{5}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {\mbox {V-B}1}Format-Correctness Metric}{5}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {\mbox {V-B}2}Price-Accuracy Metric}{5}{subsubsection.5.2.2}%
-\contentsline {section}{\numberline {VI}Conclusion}{6}{section.6}%
-\contentsline {subsection}{\numberline {\mbox {VI-A}}Future Work}{6}{subsection.6.1}%
+\contentsline {section}{\numberline {VI}Conclusion}{5}{section.6}%
+\contentsline {subsection}{\numberline {\mbox {VI-A}}Future Work}{5}{subsection.6.1}%
 \contentsline {section}{References}{6}{section*.4}%
-\contentsline {section}{Appendix}{7}{section*.5}%
-\contentsline {subsection}{\numberline {A}Example Inference Promt and Response}{7}{subsection.Appendix.A.1}%
+\contentsline {section}{Appendix}{6}{section*.5}%
+\contentsline {subsection}{\numberline {A}Top 50 Companies}{6}{subsection.Appendix.A.1}%
+\contentsline {subsection}{\numberline {B}Example Inference Promt and Response}{7}{subsection.Appendix.A.2}%
