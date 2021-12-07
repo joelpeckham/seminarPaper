@@ -251,7 +251,7 @@ Using the freely available New York Times Archive API {Citation Needed}. We down
 \subsection{Stock Data Gathering}
 The next step was to collect a dataset of historical stock prices that can be correlated with the news articles at our disposal. Using the Alpaca Data API v2 \cite{alpacadataapi}, we downloaded the historical stock prices for our top 50 U.S. companies. 
 \subsection{Data Preprocessing}
-Using the Alpaca API, we were limited to 5 years of past data. This means we must filter our news dataset to start in November of 2016. We were then able to attach stock data with 8,053 news articles over 1,222 weeks [Figure \ref{fig:eventsPerYear}].
+Using the Alpaca API, we were limited to 5 years of past data. This means we must filter our news dataset to start in November of 2016. We were then able to attach stock data with 8,053 news articles over 1,222 weeks (see Figure \ref{fig:eventsPerYear}).
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.45\textwidth]{eventsPerYear.png}
@@ -259,7 +259,7 @@ Using the Alpaca API, we were limited to 5 years of past data. This means we mus
     \label{fig:eventsPerYear}
 \end{figure}
 
-The dataset was naturally skewed to a certain few companies like Facebook, Netflix, and Apple which account for over 45\% of the news articles in our event dataset despite them only being 3/50 companies or 6\% of the companies included in our news search [Figure \ref{fig:eventsPerCompany}]. 
+The dataset was naturally skewed to a certain few companies like Facebook, Netflix, and Apple which account for over 45\% of the news articles in our event dataset despite them only being 3/50 companies or 6\% of the companies included in our news search (see Figure \ref{fig:eventsPerCompany}). 
 
 \begin{figure}[ht]
     \centering
