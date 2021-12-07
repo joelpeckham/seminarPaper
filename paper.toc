@@ -32,5 +32,5 @@
 \contentsline {subsection}{\numberline {\mbox {VI-A}}Future Work}{5}{subsection.6.1}%
 \contentsline {section}{References}{6}{section*.4}%
 \contentsline {section}{Appendix}{6}{section*.5}%
-\contentsline {subsection}{\numberline {A}Top 50 Companies}{6}{subsection.Appendix.A.1}%
+\contentsline {subsection}{\numberline {A}Top 50 U.S. Companies (November, 2021)}{6}{subsection.Appendix.A.1}%
 \contentsline {subsection}{\numberline {B}Example Inference Promt and Response}{7}{subsection.Appendix.A.2}%
